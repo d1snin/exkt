@@ -20,5 +20,6 @@ dependencies {
 
 ### Documentation
 
-| Module API |
-|------------|
+| Module API                                     |
+|------------------------------------------------|
+| https://d1snin.github.io/exkt/exkt-ktor-server |
