@@ -1,26 +1,32 @@
-[![](https://jitpack.io/v/dev.d1s/ktor-jvm-library-template.svg)](https://jitpack.io/#dev.d1s/kotlin-jvm-library-template)
+[![](https://maven.d1s.dev/api/badge/latest/releases/dev/d1s/exkt/exkt-dto?color=40c14a&name=maven.d1s.dev&prefix=v)](https://maven.d1s.dev/#/releases/dev/d1s/exkt)
 
-### Library
 
-Description.
+### Exkt (**K**o**t**lin **Ex**tensions)
+
+Exkt (**K**o**t**lin **Ex**tensions) is a set of utilities and extensions for a variety of libraries and frameworks.
+
+### Exkt modules
+
+- [Exkt DTO](./exkt-dto)
+- [Exkt for JUnit](./exkt-junit)
+- [Exkt for Konform](./exkt-konform)
+- [Exkt for Ktor Server](./exkt-ktor-server)
+- [Exkt for Ktorm](./exkt-ktorm)
+- [Exkt for PostgreSQL Java Driver](./exkt-postgres)
 
 ### Installation
 
 ```kotlin
 repositories {
-    maven(url = "https://jitpack.io")
+    maven(url = "https://maven.d1s.dev/releases")
 }
 
 dependencies {
-    val libraryVersion: String by project
+    val exktVersion: String by project
 
-    implementation("dev.d1s:kotlin-jvm-library-template:$libraryVersion")
+    implementation("dev.d1s.exkt:exkt-{module}:$exktVersion")
 }
 ```
-
-### Usage
-
-Usage instructions.
 
 ### How to contribute
 
