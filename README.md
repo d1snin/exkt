@@ -8,12 +8,12 @@ Exkt (**K**o**t**lin **Ex**tensions) is a set of utilities and extensions for a 
 
 Each Exkt has a README describing it. Here is the list of all available modules:
 
-- [Exkt DTO](./exkt-dto)
-- [Exkt for JUnit](./exkt-junit)
-- [Exkt for Konform](./exkt-konform)
-- [Exkt for Ktor Server](./exkt-ktor-server)
-- [Exkt for Ktorm](./exkt-ktorm)
-- [Exkt for PostgreSQL Java Driver](./exkt-postgres)
+- [Exkt DTO][exkt_dto]
+- [Exkt for JUnit][exkt_junit]
+- [Exkt for Konform][exkt_konform]
+- [Exkt for Ktor Server][exkt_ktor_server]
+- [Exkt for Ktorm][exkt_ktorm]
+- [Exkt for PostgreSQL Java Driver][exkt_postgres]
 
 ### Installation
 
@@ -31,11 +31,11 @@ dependencies {
 
 ### How to contribute
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md)
+See [CONTRIBUTING.md][contribution_guide]
 
 ### Code of Conduct
 
-See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
+See [CODE_OF_CONDUCT.md][code_of_conduct]
 
 ### License
 
@@ -54,3 +54,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
+
+[exkt_dto]: https://github.com/d1snin/exkt/tree/main/exkt-dto
+[exkt_junit]: https://github.com/d1snin/exkt/tree/main/exkt-junit
+[exkt_konform]: https://github.com/d1snin/exkt/tree/main/exkt-konform
+[exkt_ktor_server]: https://github.com/d1snin/exkt/tree/main/exkt-ktor-server
+[exkt_ktorm]: https://github.com/d1snin/exkt/tree/main/exkt-ktorm
+[exkt_postgres]: https://github.com/d1snin/exkt/tree/main/exkt-postgres
+
+[contribution_guide]: https://github.com/d1snin/exkt/blob/main/CONTRIBUTING.md
+[code_of_conduct]: https://github.com/d1snin/exkt/blob/main/CODE_OF_CONDUCT.md
