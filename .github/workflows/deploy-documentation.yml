@@ -1,0 +1,30 @@
+name: Publish Dokka documentation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish_docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+          distribution: 'liberica'
+          cache: 'gradle'
+
+      - name: Render Dokka documentation
+        run: ./gradlew dokkaHtmlMultiModule
+
+      - name: Publish Dokka Documentation
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/dokka/htmlMultiModule
+          publish_branch: docs
