@@ -1,4 +1,4 @@
-[![](https://maven.d1s.dev/api/badge/latest/releases/dev/d1s/exkt/exkt-dto?color=40c14a&name=maven.d1s.dev&prefix=v)](https://maven.d1s.dev/#/releases/dev/d1s/exkt)
+[//]: # ([![]&#40;https://maven.d1s.dev/api/badge/latest/releases/dev/d1s/exkt/exkt-dto?color=40c14a&name=maven.d1s.dev&prefix=v&#41;]&#40;https://maven.d1s.dev/#/releases/dev/d1s/exkt&#41;)
 
 ### Exkt
 
