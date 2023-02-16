@@ -39,7 +39,7 @@ See [CODE_OF_CONDUCT.md][code_of_conduct]
 
 ### License
 
-```
+```text
 Copyright 2022-2023 Mikhail Titov
 
 Licensed under the Apache License, Version 2.0 (the "License");
