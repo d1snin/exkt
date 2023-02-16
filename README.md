@@ -1,6 +1,6 @@
 [![](https://maven.d1s.dev/api/badge/latest/releases/dev/d1s/exkt/exkt-dto?color=40c14a&name=maven.d1s.dev&prefix=v)](https://maven.d1s.dev/#/releases/dev/d1s/exkt)
 
-### Exkt (**K**o**t**lin **Ex**tensions)
+### Exkt
 
 Exkt (**K**o**t**lin **Ex**tensions) is a set of utilities and extensions for a variety of libraries and frameworks.
 
