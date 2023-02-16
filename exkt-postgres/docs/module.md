@@ -1,5 +1,5 @@
-# Module kotlin-jvm-library-template
-A library that provides something.
+# Module exkt-postgres
+An Exkt module providing handy utilities for the PostgreSQL Java Driver.
 
-# Package dev.d1s.library
-A library that provides something.
+# Package dev.d1s.exkt.postgres
+An Exkt module providing handy utilities for the PostgreSQL Java Driver.

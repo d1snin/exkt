@@ -1,5 +1,5 @@
-# Module kotlin-jvm-library-template
-A library that provides something.
+# Module exkt-ktorm
+An Exkt module providing handy utilities for Ktorm ORM.
 
-# Package dev.d1s.library
-A library that provides something.
+# Package dev.d1s.exkt.ktorm
+An Exkt module providing handy utilities for Ktorm ORM.
