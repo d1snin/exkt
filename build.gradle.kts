@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Mikhail Titov
+ * Copyright 2022-2023 Mikhail Titov
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,55 +14,129 @@
  * limitations under the License.
  */
 
+import org.jetbrains.dokka.base.DokkaBase
+import org.jetbrains.dokka.base.DokkaBaseConfiguration
+import org.jetbrains.dokka.gradle.AbstractDokkaTask
+import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
+import org.jetbrains.dokka.gradle.DokkaTaskPartial
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
+    kotlin("jvm")
     id("java-library")
     id("maven-publish")
+    id("signing")
     id("org.jetbrains.dokka")
-    kotlin("jvm")
+    id("com.github.ben-manes.versions")
 }
 
-val projectGroup: String by project
-val projectVersion: String by project
+buildscript {
+    dependencies {
+        val dokkaVersion: String by project
 
-group = projectGroup
-version = projectVersion
-
-java.sourceCompatibility = JavaVersion.VERSION_17
-
-repositories {
-    mavenCentral()
+        classpath("org.jetbrains.dokka:dokka-base:$dokkaVersion")
+    }
 }
 
-dependencies {
-}
+allprojects {
+    apply {
+        plugin("org.jetbrains.kotlin.jvm")
+        plugin("java-library")
+        plugin("maven-publish")
+        plugin("org.jetbrains.dokka")
+    }
 
-publishing {
-    publications {
-        create<MavenPublication>(project.name) {
-            from(components["java"])
+    val projectGroup: String by project
+    val projectVersion: String by project
+
+    group = projectGroup
+    version = projectVersion
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation(kotlin("stdlib"))
+    }
+
+    publishing {
+        repositories {
+            maven {
+                name = "mavenD1sDevRepository"
+
+                val channel = if (isDevVersion) {
+                    "snapshots"
+                } else {
+                    "releases"
+                }
+
+                url = uri("https://maven.d1s.dev/$channel")
+
+                credentials {
+                    username = System.getenv("MAVEN_D1S_DEV_USERNAME")
+                    password = System.getenv("MAVEN_D1S_DEV_PASSWORD")
+                }
+            }
+        }
+
+        publications {
+            create<MavenPublication>("maven") {
+                from(components["java"])
+
+                if (isDevVersion) {
+                    val commitShortSha = System.getenv("GIT_SHORT_COMMIT_SHA")
+
+                    commitShortSha?.let {
+                        version = "$version-$it"
+                    }
+                }
+            }
         }
     }
-}
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.majorVersion
+    kotlin {
+        explicitApi()
     }
-}
 
-tasks.withType<DokkaTask> {
-    dokkaSourceSets {
-        configureEach {
-            val moduleDocsPath: String by project
-
-            includes.setFrom(moduleDocsPath)
+    tasks.withType<KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_17.majorVersion
         }
     }
+
+    tasks.withType<DokkaTaskPartial> {
+        dokkaSourceSets {
+            configureEach {
+                val moduleDocsPath: String by project
+
+                includes.setFrom(moduleDocsPath)
+            }
+        }
+
+        pluginConfiguration()
+    }
+
+    kotlin {
+        explicitApi()
+    }
 }
 
-kotlin {
-    explicitApi()
+tasks.withType<DokkaMultiModuleTask> {
+    includes.setFrom("README.md")
+
+    pluginConfiguration()
+}
+
+val Project.isDevVersion get() = this.version.toString().endsWith("-dev")
+
+fun AbstractDokkaTask.pluginConfiguration() {
+    pluginConfiguration<DokkaBase, DokkaBaseConfiguration> {
+        footerMessage = "Copyright (c) 2022-2023 Mikhail Titov"
+    }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Mikhail Titov
+ * Copyright 2022-2023 Mikhail Titov
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,13 +14,29 @@
  * limitations under the License.
  */
 
-rootProject.name = "ktor-jvm-library-template"
+rootProject.name = "exkt"
 
 pluginManagement {
     plugins {
         val kotlinVersion: String by settings
 
-        id("org.jetbrains.dokka") version kotlinVersion
+        val dokkaVersion: String by settings
+
+        val versionsPluginVersion: String by settings
+
         kotlin("jvm") version kotlinVersion
+
+        id("org.jetbrains.dokka") version dokkaVersion
+
+        id("com.github.ben-manes.versions") version versionsPluginVersion
     }
 }
+
+include(
+    "exkt-dto",
+    "exkt-junit",
+    "exkt-konform",
+    "exkt-ktor-server",
+    "exkt-ktorm",
+    "exkt-postgres"
+)
