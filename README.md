@@ -1,11 +1,12 @@
 [![](https://maven.d1s.dev/api/badge/latest/releases/dev/d1s/exkt/exkt-dto?color=40c14a&name=maven.d1s.dev&prefix=v)](https://maven.d1s.dev/#/releases/dev/d1s/exkt)
 
-
 ### Exkt (**K**o**t**lin **Ex**tensions)
 
 Exkt (**K**o**t**lin **Ex**tensions) is a set of utilities and extensions for a variety of libraries and frameworks.
 
 ### Exkt modules
+
+Each Exkt has a README describing it. Here is the list of all available modules:
 
 - [Exkt DTO](./exkt-dto)
 - [Exkt for JUnit](./exkt-junit)
