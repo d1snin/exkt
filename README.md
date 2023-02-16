@@ -6,7 +6,7 @@ Exkt (**K**o**t**lin **Ex**tensions) is a set of utilities and extensions for a 
 
 ### Exkt modules
 
-Each Exkt has a README describing it. Here is the list of all available modules:
+Each Exkt module has a README describing it. Here is the list of all available modules:
 
 - [Exkt DTO][exkt_dto]
 - [Exkt for JUnit][exkt_junit]
