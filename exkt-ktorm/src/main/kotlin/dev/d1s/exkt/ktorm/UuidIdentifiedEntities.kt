@@ -14,13 +14,20 @@
  * limitations under the License.
  */
 
-dependencies {
-    val ktorVersion: String by project
+package dev.d1s.exkt.ktorm
 
-    val mockkVersion: String by project
+import org.ktorm.schema.Column
+import org.ktorm.schema.Table
+import org.ktorm.schema.uuid
+import java.util.*
 
-    api("io.ktor:ktor-server:$ktorVersion")
+public abstract class UuidIdentifiedEntities<E : UuidIdentified<E>>(
+    tableName: String,
+    idColumnName: String = "id"
 
-    testImplementation(kotlin("test-junit"))
-    testImplementation("io.mockk:mockk:$mockkVersion")
+) : Table<E>(tableName) {
+
+    public val id: Column<UUID> = uuid(idColumnName).primaryKey().bindTo {
+        it.id
+    }
 }
