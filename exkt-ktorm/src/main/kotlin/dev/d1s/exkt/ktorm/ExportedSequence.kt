@@ -19,9 +19,8 @@ package dev.d1s.exkt.ktorm
 import org.ktorm.entity.*
 import org.ktorm.schema.Table
 
-public const val DEFAULT_LIMIT: Int = 1000
-public const val DEFAULT_OFFSET: Int = 0
-
+private const val DEFAULT_LIMIT: Int = 1000
+private const val DEFAULT_OFFSET: Int = 0
 
 /**
  * Exported [EntitySequence].
