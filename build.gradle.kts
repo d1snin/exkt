@@ -25,7 +25,6 @@ plugins {
     kotlin("jvm")
     id("java-library")
     id("maven-publish")
-    id("signing")
     id("org.jetbrains.dokka")
     id("org.jetbrains.kotlinx.kover")
     id("com.github.ben-manes.versions")
