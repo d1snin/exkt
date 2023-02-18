@@ -27,6 +27,7 @@ plugins {
     id("maven-publish")
     id("signing")
     id("org.jetbrains.dokka")
+    id("org.jetbrains.kotlinx.kover")
     id("com.github.ben-manes.versions")
 }
 
@@ -43,6 +44,8 @@ allprojects {
         plugin("org.jetbrains.kotlin.jvm")
         plugin("java-library")
         plugin("maven-publish")
+        plugin("signing")
+        plugin("org.jetbrains.kotlinx.kover")
         plugin("org.jetbrains.dokka")
     }
 

@@ -22,11 +22,15 @@ pluginManagement {
 
         val dokkaVersion: String by settings
 
+        val koverVersion: String by settings
+
         val versionsPluginVersion: String by settings
 
         kotlin("jvm") version kotlinVersion
 
         id("org.jetbrains.dokka") version dokkaVersion
+
+        id("org.jetbrains.kotlinx.kover") version koverVersion
 
         id("com.github.ben-manes.versions") version versionsPluginVersion
     }
