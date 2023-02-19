@@ -15,5 +15,8 @@
  */
 
 dependencies {
+    val mockkVersion: String by project
+
     testImplementation(kotlin("test-junit"))
+    testImplementation("io.mockk:mockk:$mockkVersion")
 }

@@ -19,29 +19,31 @@ package dev.d1s.exkt.dto
 import dev.d1s.exkt.dto.util.TestDtoConverter
 import dev.d1s.exkt.dto.util.testDto
 import dev.d1s.exkt.dto.util.testEntity
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertNull
+import io.mockk.called
+import io.mockk.spyk
+import io.mockk.verify
+import kotlin.test.*
 
 class DtoConverterTest {
 
-    private val testDtoConverter = TestDtoConverter()
+    private val testDtoConverter = spyk(TestDtoConverter())
+    private val emptyDtoConverter = object : DtoConverter<Any, Any> {}
 
     private val testEntities = listOf(testEntity)
     private val testDtoList = listOf(testDto)
 
     @Test
-    fun `must convert entity to dto`() {
-        val actualDto = testDtoConverter.convertToDto(testEntity)
-
-        assertEquals(testDto, actualDto)
+    fun `convertToDto must throw NotImplementedError`() {
+        assertThrowsNotImplementedError {
+            emptyDtoConverter.convertToDto(Any())
+        }
     }
 
     @Test
-    fun `must convert dto to entity`() {
-        val actualEntity = testDtoConverter.convertToEntity(testDto)
-
-        assertEquals(testEntity, actualEntity)
+    fun `convertToEntity must throw NotImplementedError`() {
+        assertThrowsNotImplementedError {
+            emptyDtoConverter.convertToEntity(Any())
+        }
     }
 
     @Test
@@ -51,6 +53,10 @@ class DtoConverterTest {
         }
 
         assertEquals(testDto, actualDto)
+
+        verify {
+            testDtoConverter.convertToDto(testEntity)
+        }
     }
 
     @Test
@@ -60,6 +66,10 @@ class DtoConverterTest {
         }
 
         assertNull(actualDto)
+
+        verify {
+            testDtoConverter.convertToDto(testEntity) wasNot called
+        }
     }
 
     @Test
@@ -67,6 +77,10 @@ class DtoConverterTest {
         val actualDtoList = testDtoConverter.convertToDtoList(testEntities)
 
         assertEquals(testDtoList, actualDtoList)
+
+        verify {
+            testDtoConverter.convertToDto(testEntity)
+        }
     }
 
     @Test
@@ -76,6 +90,10 @@ class DtoConverterTest {
         }
 
         assertEquals(testDtoList, actualDtoList)
+
+        verify {
+            testDtoConverter.convertToDto(testEntity)
+        }
     }
 
     @Test
@@ -85,6 +103,10 @@ class DtoConverterTest {
         }
 
         assertNull(actualDtoList)
+
+        verify {
+            testDtoConverter.convertToDto(testEntity) wasNot called
+        }
     }
 
     @Test
@@ -92,5 +114,15 @@ class DtoConverterTest {
         val actualEntities = testDtoConverter.convertToEntities(testDtoList)
 
         assertEquals(testEntities, actualEntities)
+
+        verify {
+            testDtoConverter.convertToEntity(testDto)
+        }
+    }
+
+    private inline fun assertThrowsNotImplementedError(block: () -> Unit) {
+        val error = assertFails(block)
+
+        assertIs<NotImplementedError>(error)
     }
 }
