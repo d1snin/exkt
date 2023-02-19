@@ -19,7 +19,6 @@ package dev.d1s.exkt.dto
 import dev.d1s.exkt.dto.util.TestDtoConverter
 import dev.d1s.exkt.dto.util.testDto
 import dev.d1s.exkt.dto.util.testEntity
-import io.mockk.called
 import io.mockk.spyk
 import io.mockk.verify
 import kotlin.test.*
@@ -67,8 +66,8 @@ class DtoConverterTest {
 
         assertNull(actualDto)
 
-        verify {
-            testDtoConverter.convertToDto(testEntity) wasNot called
+        verify(inverse = true) {
+            testDtoConverter.convertToDto(testEntity)
         }
     }
 
@@ -104,8 +103,8 @@ class DtoConverterTest {
 
         assertNull(actualDtoList)
 
-        verify {
-            testDtoConverter.convertToDtoList(testEntities) wasNot called
+        verify(inverse = true) {
+            testDtoConverter.convertToDtoList(testEntities)
         }
     }
 
