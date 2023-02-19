@@ -92,7 +92,7 @@ class DtoConverterTest {
         assertEquals(testDtoList, actualDtoList)
 
         verify {
-            testDtoConverter.convertToDto(testEntity)
+            testDtoConverter.convertToDtoList(testEntities)
         }
     }
 
@@ -105,7 +105,7 @@ class DtoConverterTest {
         assertNull(actualDtoList)
 
         verify {
-            testDtoConverter.convertToDto(testEntity) wasNot called
+            testDtoConverter.convertToDtoList(testEntities) wasNot called
         }
     }
 
