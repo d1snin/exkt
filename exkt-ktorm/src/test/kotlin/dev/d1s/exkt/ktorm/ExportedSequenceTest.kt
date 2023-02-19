@@ -16,15 +16,13 @@
 
 package dev.d1s.exkt.ktorm
 
-import dev.d1s.exkt.ktorm.util.TestEntity
-import dev.d1s.exkt.ktorm.util.testEntityInstance
-import dev.d1s.exkt.ktorm.util.mockStaticEntitySequence
+import dev.d1s.exkt.ktorm.util.*
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verifyOrder
-import kotlin.test.Test
 import org.ktorm.entity.*
 import org.ktorm.schema.Table
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
 private typealias EntitySequenceMock = EntitySequence<TestEntity, Table<TestEntity>>
@@ -33,7 +31,7 @@ class ExportedSequenceTest {
 
     private val entitySequenceMock = mockk<EntitySequenceMock>()
 
-    private val mockElements = listOf(testEntityInstance)
+    private val elements = listOf(testEntity)
 
     @Test
     fun `must export entity sequence`() {
@@ -44,7 +42,7 @@ class ExportedSequenceTest {
                 assertEquals(MOCK_LIMIT, limit)
                 assertEquals(MOCK_OFFSET, offset)
                 assertEquals(MOCK_COUNT, totalCount)
-                assertEquals(mockElements, elements)
+                assertEquals(this@ExportedSequenceTest.elements, elements)
             }
 
             verifyOrder {
@@ -74,16 +72,8 @@ class ExportedSequenceTest {
 
             every {
                 entitySequenceMock.toList()
-            } returns mockElements
+            } returns elements
 
             block()
         }
-
-    private companion object {
-
-        private const val MOCK_LIMIT = 1500
-        private const val MOCK_OFFSET = 200
-
-        private const val MOCK_COUNT = 2000
-    }
 }

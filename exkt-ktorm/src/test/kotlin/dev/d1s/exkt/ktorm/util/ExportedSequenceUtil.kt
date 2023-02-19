@@ -14,15 +14,9 @@
  * limitations under the License.
  */
 
-dependencies {
-    val ktormVersion: String by project
+package dev.d1s.exkt.ktorm.util
 
-    val mockkVersion: String by project
+const val MOCK_LIMIT = 1500
+const val MOCK_OFFSET = 200
 
-    api("org.ktorm:ktorm-core:$ktormVersion")
-
-    api(project(":exkt-dto"))
-
-    testImplementation(kotlin("test-junit"))
-    testImplementation("io.mockk:mockk:$mockkVersion")
-}
+const val MOCK_COUNT = 2000

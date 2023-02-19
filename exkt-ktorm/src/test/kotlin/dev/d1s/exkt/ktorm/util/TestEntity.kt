@@ -19,49 +19,48 @@ package dev.d1s.exkt.ktorm.util
 import org.ktorm.entity.Entity
 import kotlin.reflect.KClass
 
-interface TestEntity : Entity<TestEntity>
+class TestEntity : Entity<TestEntity> {
 
-val testEntityInstance
-    get() = object : TestEntity {
+    private val hashCode = Any().hashCode()
 
-        override val entityClass: KClass<TestEntity>
-            get() = TODO("Not yet implemented")
-        override val properties: Map<String, Any?>
-            get() = TODO("Not yet implemented")
+    override val entityClass: KClass<TestEntity>
+        get() = TODO("Not yet implemented")
+    override val properties: Map<String, Any?>
+        get() = TODO("Not yet implemented")
 
-        override fun copy(): TestEntity {
-            TODO("Not yet implemented")
-        }
-
-        override fun delete(): Int {
-            TODO("Not yet implemented")
-        }
-
-        override fun discardChanges() {
-            TODO("Not yet implemented")
-        }
-
-        override fun equals(other: Any?): Boolean {
-            TODO("Not yet implemented")
-        }
-
-        override fun flushChanges(): Int {
-            TODO("Not yet implemented")
-        }
-
-        override fun get(name: String): Any? {
-            TODO("Not yet implemented")
-        }
-
-        override fun hashCode(): Int {
-            TODO("Not yet implemented")
-        }
-
-        override fun set(name: String, value: Any?) {
-            TODO("Not yet implemented")
-        }
-
-        override fun toString(): String {
-            TODO("Not yet implemented")
-        }
+    override fun copy(): TestEntity {
+        TODO("Not yet implemented")
     }
+
+    override fun delete(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun discardChanges() {
+        TODO("Not yet implemented")
+    }
+
+    override fun equals(other: Any?): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun flushChanges(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun get(name: String): Any? {
+        TODO("Not yet implemented")
+    }
+
+    override fun hashCode(): Int = hashCode
+
+    override fun set(name: String, value: Any?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun toString(): String {
+        TODO("Not yet implemented")
+    }
+}
+
+val testEntity get() = TestEntity()
