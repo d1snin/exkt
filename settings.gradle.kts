@@ -41,6 +41,7 @@ include(
     "exkt-junit",
     "exkt-konform",
     "exkt-ktor-server",
+    "exkt-ktor-server-postgres-support",
     "exkt-ktorm",
     "exkt-postgres"
 )
