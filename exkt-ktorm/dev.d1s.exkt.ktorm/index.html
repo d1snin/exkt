@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>dev.d1s.exkt.ktorm</title>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../index.html">
+<span>exkt</span>            </a>    </div>
+    <div>0.2.0
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="exkt-ktorm::dev.d1s.exkt.ktorm////PointingToDeclaration//1986786968">
+  <div class="breadcrumbs"><a href="../index.html">exkt-ktorm</a><span class="delimiter">/</span><span class="current">dev.d1s.exkt.ktorm</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-ktorm:dokkaHtmlPartial/main"><p class="paragraph">An Exkt module providing handy utilities for Ktorm ORM.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Types">Types</button><button class="section-tab" data-togglable="Functions">Functions</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Types</h2>
+      <div class="table" data-togglable="Types"><a data-name="-1189810434%2FClasslikes%2F1986786968" anchor-label="ExportedSequence" id="-1189810434%2FClasslikes%2F1986786968" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":exkt-ktorm:dokkaHtmlPartial/main" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-exported-sequence/index.html"><span>Exported</span><wbr><span><span>Sequence</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1189810434%2FClasslikes%2F1986786968"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-ktorm:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-exported-sequence/index.html">ExportedSequence</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-exported-sequence/index.html">E</a><span class="token operator"> : </span><span data-unresolved-link="org.ktorm.entity/Entity///PointingToDeclaration/">Entity</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-exported-sequence/index.html">E</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>limit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>offset<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>totalCount<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>elements<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-exported-sequence/index.html">E</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Exported <span data-unresolved-link="org.ktorm.entity/EntitySequence///PointingToDeclaration/">EntitySequence</span>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-303931314%2FClasslikes%2F1986786968" anchor-label="ModificationTimestampAware" id="-303931314%2FClasslikes%2F1986786968" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":exkt-ktorm:dokkaHtmlPartial/main" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-modification-timestamp-aware/index.html"><span>Modification</span><wbr><span>Timestamp</span><wbr><span><span>Aware</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-303931314%2FClasslikes%2F1986786968"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-ktorm:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-modification-timestamp-aware/index.html">ModificationTimestampAware</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-modification-timestamp-aware/index.html">E</a><span class="token operator"> : </span><span data-unresolved-link="org.ktorm.entity/Entity///PointingToDeclaration/">Entity</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-modification-timestamp-aware/index.html">E</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.ktorm.entity/Entity///PointingToDeclaration/">Entity</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-modification-timestamp-aware/index.html">E</a><span class="token operator">&gt; </span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="229815949%2FClasslikes%2F1986786968" anchor-label="ModificationTimestampAwareEntities" id="229815949%2FClasslikes%2F1986786968" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":exkt-ktorm:dokkaHtmlPartial/main" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-modification-timestamp-aware-entities/index.html"><span>Modification</span><wbr><span>Timestamp</span><wbr><span>Aware</span><wbr><span><span>Entities</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="229815949%2FClasslikes%2F1986786968"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-ktorm:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-modification-timestamp-aware-entities/index.html">ModificationTimestampAwareEntities</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-modification-timestamp-aware-entities/index.html">E</a><span class="token operator"> : </span><a href="-modification-timestamp-aware/index.html">ModificationTimestampAware</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-modification-timestamp-aware-entities/index.html">E</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">tableName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">createdAtColumnName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">"created_at"</span><span class="token punctuation">, </span></span><span class="parameter ">updatedAtColumnName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">"updated_at"</span></span></span><span class="token punctuation">)</span> : <span data-unresolved-link="org.ktorm.schema/Table///PointingToDeclaration/">Table</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-modification-timestamp-aware-entities/index.html">E</a><span class="token operator">&gt; </span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1036476676%2FClasslikes%2F1986786968" anchor-label="UuidIdentified" id="-1036476676%2FClasslikes%2F1986786968" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":exkt-ktorm:dokkaHtmlPartial/main" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-uuid-identified/index.html"><span>Uuid</span><wbr><span><span>Identified</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1036476676%2FClasslikes%2F1986786968"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-ktorm:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-uuid-identified/index.html">UuidIdentified</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-uuid-identified/index.html">E</a><span class="token operator"> : </span><span data-unresolved-link="org.ktorm.entity/Entity///PointingToDeclaration/">Entity</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-uuid-identified/index.html">E</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.ktorm.entity/Entity///PointingToDeclaration/">Entity</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-uuid-identified/index.html">E</a><span class="token operator">&gt; </span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-2056362181%2FClasslikes%2F1986786968" anchor-label="UuidIdentifiedEntities" id="-2056362181%2FClasslikes%2F1986786968" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":exkt-ktorm:dokkaHtmlPartial/main" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-uuid-identified-entities/index.html"><span>Uuid</span><wbr><span>Identified</span><wbr><span><span>Entities</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2056362181%2FClasslikes%2F1986786968"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-ktorm:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-uuid-identified-entities/index.html">UuidIdentifiedEntities</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-uuid-identified-entities/index.html">E</a><span class="token operator"> : </span><a href="-uuid-identified/index.html">UuidIdentified</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-uuid-identified-entities/index.html">E</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">tableName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">idColumnName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">"id"</span></span></span><span class="token punctuation">)</span> : <span data-unresolved-link="org.ktorm.schema/Table///PointingToDeclaration/">Table</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-uuid-identified-entities/index.html">E</a><span class="token operator">&gt; </span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="1181756244%2FFunctions%2F1986786968" anchor-label="export" id="1181756244%2FFunctions%2F1986786968" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":exkt-ktorm:dokkaHtmlPartial/main" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="export.html"><span><span>export</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1181756244%2FFunctions%2F1986786968"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-ktorm:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="export.html">E</a><span class="token operator"> : </span><span data-unresolved-link="org.ktorm.entity/Entity///PointingToDeclaration/">Entity</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="export.html">E</a><span class="token operator">&gt;</span><span class="token punctuation">, </span><span class="token keyword"></span><a href="export.html">T</a><span class="token operator"> : </span><span data-unresolved-link="org.ktorm.schema/Table///PointingToDeclaration/">Table</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="export.html">E</a><span class="token operator">&gt;</span><span class="token operator">&gt; </span><span data-unresolved-link="org.ktorm.entity/EntitySequence///PointingToDeclaration/">EntitySequence</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="export.html">E</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="export.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="export.html"><span class="token function">export</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">limit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>DEFAULT_LIMIT<span class="token punctuation">, </span></span><span class="parameter ">offset<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>DEFAULT_OFFSET</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-exported-sequence/index.html">ExportedSequence</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="export.html">E</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Exports an <span data-unresolved-link="org.ktorm.entity/EntitySequence///PointingToDeclaration/">EntitySequence</span>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="313943645%2FFunctions%2F1986786968" anchor-label="findByIdFrom" id="313943645%2FFunctions%2F1986786968" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":exkt-ktorm:dokkaHtmlPartial/main" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="find-by-id-from.html"><span>find</span><wbr><span>By</span><wbr><span>Id</span><wbr><span><span>From</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="313943645%2FFunctions%2F1986786968"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-ktorm:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="find-by-id-from.html">E</a><span class="token operator"> : </span><a href="-uuid-identified/index.html">UuidIdentified</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="find-by-id-from.html">E</a><span class="token operator">&gt;</span><span class="token punctuation">, </span><span class="token keyword"></span><a href="find-by-id-from.html">T</a><span class="token operator"> : </span><a href="-uuid-identified-entities/index.html">UuidIdentifiedEntities</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="find-by-id-from.html">E</a><span class="token operator">&gt;</span><span class="token operator">&gt; </span><span data-unresolved-link="org.ktorm.database/Database///PointingToDeclaration/">Database</span><span class="token punctuation">.</span><a href="find-by-id-from.html"><span class="token function">findByIdFrom</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">table<span class="token operator">: </span><a href="find-by-id-from.html">T</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="find-by-id-from.html">E</a><span class="token operator">?</span></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="find-by-id-from.html">E</a><span class="token operator"> : </span><a href="-uuid-identified/index.html">UuidIdentified</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="find-by-id-from.html">E</a><span class="token operator">&gt;</span><span class="token punctuation">, </span><span class="token keyword"></span><a href="find-by-id-from.html">T</a><span class="token operator"> : </span><a href="-uuid-identified-entities/index.html">UuidIdentifiedEntities</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="find-by-id-from.html">E</a><span class="token operator">&gt;</span><span class="token operator">&gt; </span><span data-unresolved-link="org.ktorm.database/Database///PointingToDeclaration/">Database</span><span class="token punctuation">.</span><a href="find-by-id-from.html"><span class="token function">findByIdFrom</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">table<span class="token operator">: </span><a href="find-by-id-from.html">T</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="find-by-id-from.html">E</a><span class="token operator">?</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-2040806203%2FFunctions%2F1986786968" anchor-label="sortedByCreatedAt" id="-2040806203%2FFunctions%2F1986786968" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":exkt-ktorm:dokkaHtmlPartial/main" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="sorted-by-created-at.html"><span>sorted</span><wbr><span>By</span><wbr><span>Created</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2040806203%2FFunctions%2F1986786968"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-ktorm:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-created-at.html">E</a><span class="token operator"> : </span><a href="-modification-timestamp-aware/index.html">ModificationTimestampAware</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-created-at.html">E</a><span class="token operator">&gt;</span><span class="token punctuation">, </span><span class="token keyword"></span><a href="sorted-by-created-at.html">T</a><span class="token operator"> : </span><a href="-modification-timestamp-aware-entities/index.html">ModificationTimestampAwareEntities</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-created-at.html">E</a><span class="token operator">&gt;</span><span class="token operator">&gt; </span><span data-unresolved-link="org.ktorm.entity/EntitySequence///PointingToDeclaration/">EntitySequence</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-created-at.html">E</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="sorted-by-created-at.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="sorted-by-created-at.html"><span class="token function">sortedByCreatedAt</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="org.ktorm.entity/EntitySequence///PointingToDeclaration/">EntitySequence</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-created-at.html">E</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="sorted-by-created-at.html">T</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-337058963%2FFunctions%2F1986786968" anchor-label="sortedByCreatedAtDescending" id="-337058963%2FFunctions%2F1986786968" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":exkt-ktorm:dokkaHtmlPartial/main" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="sorted-by-created-at-descending.html"><span>sorted</span><wbr><span>By</span><wbr><span>Created</span><wbr><span>At</span><wbr><span><span>Descending</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-337058963%2FFunctions%2F1986786968"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-ktorm:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-created-at-descending.html">E</a><span class="token operator"> : </span><a href="-modification-timestamp-aware/index.html">ModificationTimestampAware</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-created-at-descending.html">E</a><span class="token operator">&gt;</span><span class="token punctuation">, </span><span class="token keyword"></span><a href="sorted-by-created-at-descending.html">T</a><span class="token operator"> : </span><a href="-modification-timestamp-aware-entities/index.html">ModificationTimestampAwareEntities</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-created-at-descending.html">E</a><span class="token operator">&gt;</span><span class="token operator">&gt; </span><span data-unresolved-link="org.ktorm.entity/EntitySequence///PointingToDeclaration/">EntitySequence</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-created-at-descending.html">E</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="sorted-by-created-at-descending.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="sorted-by-created-at-descending.html"><span class="token function">sortedByCreatedAtDescending</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="org.ktorm.entity/EntitySequence///PointingToDeclaration/">EntitySequence</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-created-at-descending.html">E</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="sorted-by-created-at-descending.html">T</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1859959982%2FFunctions%2F1986786968" anchor-label="sortedByUpdatedAt" id="-1859959982%2FFunctions%2F1986786968" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":exkt-ktorm:dokkaHtmlPartial/main" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="sorted-by-updated-at.html"><span>sorted</span><wbr><span>By</span><wbr><span>Updated</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1859959982%2FFunctions%2F1986786968"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-ktorm:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-updated-at.html">E</a><span class="token operator"> : </span><a href="-modification-timestamp-aware/index.html">ModificationTimestampAware</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-updated-at.html">E</a><span class="token operator">&gt;</span><span class="token punctuation">, </span><span class="token keyword"></span><a href="sorted-by-updated-at.html">T</a><span class="token operator"> : </span><a href="-modification-timestamp-aware-entities/index.html">ModificationTimestampAwareEntities</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-updated-at.html">E</a><span class="token operator">&gt;</span><span class="token operator">&gt; </span><span data-unresolved-link="org.ktorm.entity/EntitySequence///PointingToDeclaration/">EntitySequence</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-updated-at.html">E</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="sorted-by-updated-at.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="sorted-by-updated-at.html"><span class="token function">sortedByUpdatedAt</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="org.ktorm.entity/EntitySequence///PointingToDeclaration/">EntitySequence</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-updated-at.html">E</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="sorted-by-updated-at.html">T</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-69118534%2FFunctions%2F1986786968" anchor-label="sortedByUpdatedAtDescending" id="-69118534%2FFunctions%2F1986786968" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":exkt-ktorm:dokkaHtmlPartial/main" data-filterable-set=":exkt-ktorm:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="sorted-by-updated-at-descending.html"><span>sorted</span><wbr><span>By</span><wbr><span>Updated</span><wbr><span>At</span><wbr><span><span>Descending</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-69118534%2FFunctions%2F1986786968"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-ktorm:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-updated-at-descending.html">E</a><span class="token operator"> : </span><a href="-modification-timestamp-aware/index.html">ModificationTimestampAware</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-updated-at-descending.html">E</a><span class="token operator">&gt;</span><span class="token punctuation">, </span><span class="token keyword"></span><a href="sorted-by-updated-at-descending.html">T</a><span class="token operator"> : </span><a href="-modification-timestamp-aware-entities/index.html">ModificationTimestampAwareEntities</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-updated-at-descending.html">E</a><span class="token operator">&gt;</span><span class="token operator">&gt; </span><span data-unresolved-link="org.ktorm.entity/EntitySequence///PointingToDeclaration/">EntitySequence</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-updated-at-descending.html">E</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="sorted-by-updated-at-descending.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="sorted-by-updated-at-descending.html"><span class="token function">sortedByUpdatedAtDescending</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="org.ktorm.entity/EntitySequence///PointingToDeclaration/">EntitySequence</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="sorted-by-updated-at-descending.html">E</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="sorted-by-updated-at-descending.html">T</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>Copyright (c) 2022-2023 Mikhail Titov</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+

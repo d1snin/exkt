@@ -1,1 +1,1 @@
-sourceset_dependencies = '{":exkt-ktor-server:dokkaHtmlPartial/main":[]}'
+sourceset_dependencies = '{":exkt-ktorm:dokkaHtmlPartial/main":[],":exkt-ktor-server-postgres-support:dokkaHtmlPartial/main":[],":exkt-konform:dokkaHtmlPartial/main":[],":exkt-ktor-server:dokkaHtmlPartial/main":[],":exkt-postgres:dokkaHtmlPartial/main":[],":exkt-dto:dokkaHtmlPartial/main":[]}'

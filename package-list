@@ -1,5 +1,16 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 
+module:exkt-dto
+dev.d1s.exkt.dto
+module:exkt-konform
+dev.d1s.exkt.konform
 module:exkt-ktor-server
 dev.d1s.exkt.ktor.server
+module:exkt-ktor-server-postgres-support
+dev.d1s.exkt.ktor.server.postgres
+module:exkt-ktorm
+dev.d1s.exkt.ktorm
+dev.d1s.exkt.ktorm.dto
+module:exkt-postgres
+dev.d1s.exkt.postgres
