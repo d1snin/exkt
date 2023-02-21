@@ -14,8 +14,20 @@
  * limitations under the License.
  */
 
-dependencies {
-    val postgresVersion: String by project
+kotlin {
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = JavaVersion.VERSION_17.majorVersion
+        }
+    }
 
-    api("org.postgresql:postgresql:$postgresVersion")
+    sourceSets {
+        val jvmMain by getting {
+            dependencies {
+                val postgresVersion: String by project
+
+                api("org.postgresql:postgresql:$postgresVersion")
+            }
+        }
+    }
 }

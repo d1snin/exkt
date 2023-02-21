@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.dokka.base.DokkaBase
 import org.jetbrains.dokka.base.DokkaBaseConfiguration
 import org.jetbrains.dokka.gradle.AbstractDokkaTask
 import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
 import org.jetbrains.dokka.gradle.DokkaTaskPartial
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm")
+    kotlin("multiplatform")
     id("java-library")
     id("maven-publish")
     id("org.jetbrains.dokka")
@@ -40,12 +40,10 @@ buildscript {
 
 allprojects {
     apply {
-        plugin("org.jetbrains.kotlin.jvm")
-        plugin("java-library")
+        plugin("org.jetbrains.kotlin.multiplatform")
         plugin("maven-publish")
-        plugin("signing")
-        plugin("org.jetbrains.kotlinx.kover")
         plugin("org.jetbrains.dokka")
+        plugin("org.jetbrains.kotlinx.kover")
     }
 
     val projectGroup: String by project
@@ -54,19 +52,8 @@ allprojects {
     group = projectGroup
     version = projectVersion
 
-    java {
-        withSourcesJar()
-
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-
     repositories {
         mavenCentral()
-    }
-
-    dependencies {
-        implementation(kotlin("stdlib"))
     }
 
     publishing {
@@ -91,8 +78,6 @@ allprojects {
 
         publications {
             create<MavenPublication>("maven") {
-                from(components["java"])
-
                 if (isDevVersion) {
                     val commitShortSha = System.getenv("GIT_SHORT_COMMIT_SHA")
 
@@ -104,23 +89,13 @@ allprojects {
         }
     }
 
-    kotlin {
-        explicitApi()
-    }
-
-    tasks.withType<KotlinCompile> {
-        kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_17.majorVersion
-        }
-    }
-
     tasks.withType<Test> {
         testLogging {
             events.addAll(
                 listOf(
-                    org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED,
-                    org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED,
-                    org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
+                    TestLogEvent.FAILED,
+                    TestLogEvent.PASSED,
+                    TestLogEvent.SKIPPED
                 )
             )
         }
@@ -140,6 +115,19 @@ allprojects {
 
     kotlin {
         explicitApi()
+    }
+}
+
+kotlin {
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = JavaVersion.VERSION_17.majorVersion
+        }
+    }
+
+    js {
+        browser()
+        nodejs()
     }
 }
 

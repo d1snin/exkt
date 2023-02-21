@@ -14,8 +14,25 @@
  * limitations under the License.
  */
 
-dependencies {
-    val konformVersion: String by project
+kotlin {
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = JavaVersion.VERSION_17.majorVersion
+        }
+    }
 
-    api("io.konform:konform:$konformVersion")
+    js {
+        browser()
+        nodejs()
+    }
+
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                val konformVersion: String by project
+
+                api("io.konform:konform:$konformVersion")
+            }
+        }
+    }
 }

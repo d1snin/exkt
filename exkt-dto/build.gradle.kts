@@ -14,9 +14,29 @@
  * limitations under the License.
  */
 
-dependencies {
-    val mockkVersion: String by project
 
-    testImplementation(kotlin("test-junit"))
-    testImplementation("io.mockk:mockk:$mockkVersion")
+kotlin {
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = JavaVersion.VERSION_17.majorVersion
+        }
+    }
+
+    js {
+        browser()
+        nodejs()
+    }
+
+    sourceSets {
+        val commonMain by getting
+
+        val jvmTest by getting {
+            dependencies {
+                val mockkVersion: String by project
+
+                implementation(kotlin("test-junit"))
+                implementation("io.mockk:mockk:$mockkVersion")
+            }
+        }
+    }
 }

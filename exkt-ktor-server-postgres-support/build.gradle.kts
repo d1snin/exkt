@@ -14,10 +14,22 @@
  * limitations under the License.
  */
 
-dependencies {
-    val ktorVersion: String by project
+kotlin {
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = JavaVersion.VERSION_17.majorVersion
+        }
+    }
 
-    api("io.ktor:ktor-server:$ktorVersion")
+    sourceSets {
+        val jvmMain by getting {
+            dependencies {
+                val ktorVersion: String by project
 
-    api(project(":exkt-postgres"))
+                api("io.ktor:ktor-server:$ktorVersion")
+
+                api(project(":exkt-postgres"))
+            }
+        }
+    }
 }

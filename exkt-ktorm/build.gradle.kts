@@ -14,15 +14,31 @@
  * limitations under the License.
  */
 
-dependencies {
-    val ktormVersion: String by project
+kotlin {
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = JavaVersion.VERSION_17.majorVersion
+        }
+    }
 
-    val mockkVersion: String by project
+    sourceSets {
+        val jvmMain by getting {
+            dependencies {
+                val ktormVersion: String by project
 
-    api("org.ktorm:ktorm-core:$ktormVersion")
+                api("org.ktorm:ktorm-core:$ktormVersion")
 
-    api(project(":exkt-dto"))
+                api(project(":exkt-dto"))
+            }
+        }
 
-    testImplementation(kotlin("test-junit"))
-    testImplementation("io.mockk:mockk:$mockkVersion")
+        val jvmTest by getting {
+            dependencies {
+                val mockkVersion: String by project
+
+                implementation(kotlin("test-junit"))
+                implementation("io.mockk:mockk:$mockkVersion")
+            }
+        }
+    }
 }

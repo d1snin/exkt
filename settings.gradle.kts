@@ -26,7 +26,9 @@ pluginManagement {
 
         val versionsPluginVersion: String by settings
 
+        kotlin("multiplatform") version kotlinVersion
         kotlin("jvm") version kotlinVersion
+        kotlin("js") version kotlinVersion
 
         id("org.jetbrains.dokka") version dokkaVersion
 
@@ -38,7 +40,6 @@ pluginManagement {
 
 include(
     "exkt-dto",
-    "exkt-junit",
     "exkt-konform",
     "exkt-ktor-server",
     "exkt-ktor-server-postgres-support",
