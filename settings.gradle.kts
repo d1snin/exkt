@@ -40,6 +40,7 @@ pluginManagement {
 
 include(
     "exkt-dto",
+    "exkt-test",
     "exkt-konform",
     "exkt-ktor-server",
     "exkt-ktor-server-postgres-support",

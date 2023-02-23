@@ -9,7 +9,7 @@ Exkt (**K**o**t**lin **Ex**tensions) is a set of utilities and extensions for a 
 Each Exkt module has a README describing it. Here is the list of all available modules:
 
 - [Exkt DTO][exkt_dto]
-- [Exkt for JUnit][exkt_junit]
+- [Exkt for kotlin.test][exkt_test]
 - [Exkt for Konform][exkt_konform]
 - [Exkt for Ktor Server][exkt_ktor_server]
 - [PostgreSQL Java Driver support for Ktor Server][exkt_ktor_server_postgres_support]
@@ -57,7 +57,7 @@ limitations under the License.
 ```
 
 [exkt_dto]: https://github.com/d1snin/exkt/tree/main/exkt-dto
-[exkt_junit]: https://github.com/d1snin/exkt/tree/main/exkt-junit
+[exkt_test]: https://github.com/d1snin/exkt/tree/main/exkt-test
 [exkt_konform]: https://github.com/d1snin/exkt/tree/main/exkt-konform
 [exkt_ktor_server]: https://github.com/d1snin/exkt/tree/main/exkt-ktor-server
 [exkt_ktor_server_postgres_support]: https://github.com/d1snin/exkt/tree/main/exkt-ktor-server-postgres-support
