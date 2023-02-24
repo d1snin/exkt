@@ -17,16 +17,11 @@
 package dev.d1s.exkt.ktorm
 
 import org.ktorm.schema.Column
-import org.ktorm.schema.Table
 import java.time.Instant
 
-public abstract class ModificationTimestampAwareEntities<E : ModificationTimestampAware<E>>(
-    tableName: String,
-    createdAtColumnName: String? = null,
-    updatedAtColumnName: String? = null
-) : Table<E>(tableName), ModificationTimestampAwareEntitiesBase {
+public interface ModificationTimestampAwareEntitiesBase {
 
-    public override val createdAt: Column<Instant> = createdAtColumn(createdAtColumnName)
+    public val createdAt: Column<Instant>
 
-    public override val updatedAt: Column<Instant> = updatedAtColumn(updatedAtColumnName)
+    public val updatedAt: Column<Instant>
 }

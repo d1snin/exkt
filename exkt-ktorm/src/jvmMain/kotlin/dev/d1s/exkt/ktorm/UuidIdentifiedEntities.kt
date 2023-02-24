@@ -18,16 +18,12 @@ package dev.d1s.exkt.ktorm
 
 import org.ktorm.schema.Column
 import org.ktorm.schema.Table
-import org.ktorm.schema.uuid
 import java.util.*
 
 public abstract class UuidIdentifiedEntities<E : UuidIdentified<E>>(
     tableName: String,
-    idColumnName: String = "id"
+    idColumnName: String? = null
+) : Table<E>(tableName), UuidIdentifiedEntitiesBase {
 
-) : Table<E>(tableName) {
-
-    public val id: Column<UUID> = uuid(idColumnName).primaryKey().bindTo {
-        it.id
-    }
+    public override val id: Column<UUID> = idColumn(idColumnName)
 }

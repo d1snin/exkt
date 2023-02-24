@@ -19,12 +19,16 @@ package dev.d1s.exkt.ktorm
 import org.ktorm.schema.Column
 import org.ktorm.schema.Table
 import java.time.Instant
+import java.util.*
 
-public abstract class ModificationTimestampAwareEntities<E : ModificationTimestampAware<E>>(
+public class UuidIdentifiedAndModificationTimestampAwareEntities<E : UuidIdentifiedAndModificationTimestampAware<E>>(
     tableName: String,
+    idColumnName: String? = null,
     createdAtColumnName: String? = null,
     updatedAtColumnName: String? = null
-) : Table<E>(tableName), ModificationTimestampAwareEntitiesBase {
+) : Table<E>(tableName), UuidIdentifiedEntitiesBase, ModificationTimestampAwareEntitiesBase {
+
+    public override val id: Column<UUID> = idColumn(idColumnName)
 
     public override val createdAt: Column<Instant> = createdAtColumn(createdAtColumnName)
 
