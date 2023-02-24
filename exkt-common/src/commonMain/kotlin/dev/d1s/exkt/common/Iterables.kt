@@ -48,3 +48,7 @@ public fun Iterable<*>.hasDuplicates(): Boolean = this.toSet().size != this.toLi
 public fun <E, T> Iterable<E>.hasDuplicatesOf(selector: (E) -> T): Boolean = this.map {
     selector(it)
 }.hasDuplicates()
+
+public inline fun <E> Iterable<E>.withEach(block: E.() -> Unit): Unit = this.forEach {
+    it.block()
+}
