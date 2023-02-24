@@ -21,7 +21,7 @@ import org.ktorm.schema.Table
 import java.time.Instant
 import java.util.*
 
-public class UuidIdentifiedAndModificationTimestampAwareEntities<E : UuidIdentifiedAndModificationTimestampAware<E>>(
+public abstract class UuidIdentifiedAndModificationTimestampAwareEntities<E : UuidIdentifiedAndModificationTimestampAware<E>>(
     tableName: String,
     idColumnName: String? = null,
     createdAtColumnName: String? = null,
