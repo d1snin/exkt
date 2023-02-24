@@ -39,6 +39,7 @@ pluginManagement {
 }
 
 include(
+    "exkt-common",
     "exkt-dto",
     "exkt-test",
     "exkt-konform",

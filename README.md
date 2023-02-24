@@ -8,6 +8,7 @@ Exkt (**K**o**t**lin **Ex**tensions) is a set of utilities and extensions for a 
 
 Each Exkt module has a README describing it. Here is the list of all available modules:
 
+- [Exkt - Common Utilities][exkt_common]
 - [Exkt DTO][exkt_dto]
 - [Exkt for kotlin.test][exkt_test]
 - [Exkt for Konform][exkt_konform]
@@ -56,6 +57,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
+[exkt_common]: https://github.com/d1snin/exkt/tree/main/exkt-common
 [exkt_dto]: https://github.com/d1snin/exkt/tree/main/exkt-dto
 [exkt_test]: https://github.com/d1snin/exkt/tree/main/exkt-test
 [exkt_konform]: https://github.com/d1snin/exkt/tree/main/exkt-konform
