@@ -16,6 +16,8 @@
 
 package dev.d1s.exkt.common
 
+import io.mockk.mockk
+import io.mockk.verify
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -74,5 +76,28 @@ class IterablesTest {
         }
 
         assertFalse(actual)
+    }
+
+    @Test
+    fun `withEach must call lambda on each element`() {
+        val receiver = TestReceiver.mock
+
+        listOf(receiver).withEach {
+            doSomething()
+        }
+
+        verify {
+            receiver.doSomething()
+        }
+    }
+}
+
+private interface TestReceiver {
+
+    fun doSomething()
+
+    companion object {
+
+        val mock get() = mockk<TestReceiver>(relaxUnitFun = true)
     }
 }
