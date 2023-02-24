@@ -16,9 +16,26 @@
 
 package dev.d1s.exkt.dto
 
-
 public typealias EntityWithOptionalDto<E, D> = Pair<E, D?>
 public typealias EntityWithOptionalDtoList<E, D> = Pair<List<E>, List<D>?>
 
 public typealias ResultingEntityWithOptionalDto<E, D> = Result<EntityWithOptionalDto<E, D>>
 public typealias ResultingEntityWithOptionalDtoList<E, D> = Result<EntityWithOptionalDtoList<E, D>>
+
+public val <E, D> EntityWithOptionalDto<E, D>.entity: E
+    get() = first
+
+public val <E, D> EntityWithOptionalDto<E, D>.dto: D?
+    get() = second
+
+public val <E, D> EntityWithOptionalDtoList<E, D>.entities: List<E>
+    get() = first
+
+public val <E, D> EntityWithOptionalDtoList<E, D>.dtoList: List<D>?
+    get() = second
+
+public val <E, D> EntityWithOptionalDto<E, D>.requiredDto: D
+    get() = requireNotNull(dto)
+
+public val <E, D> EntityWithOptionalDtoList<E, D>.requiredDtoList: List<D>
+    get() = requireNotNull(dtoList)
