@@ -76,14 +76,12 @@ allprojects {
             }
         }
 
-        publications {
-            create<MavenPublication>("maven") {
-                if (isDevVersion) {
-                    val commitShortSha = System.getenv("GIT_SHORT_COMMIT_SHA")
+        publications.all {
+            if (isDevVersion) {
+                val commitShortSha = System.getenv("GIT_SHORT_COMMIT_SHA")
 
-                    commitShortSha?.let {
-                        version = "$version-$it"
-                    }
+                commitShortSha?.let {
+                    version = "$version-$it"
                 }
             }
         }
