@@ -13,6 +13,7 @@ Each Exkt module has a README describing it. Here is the list of all available m
 - [Exkt for kotlin.test][exkt_test]
 - [Exkt for Konform][exkt_konform]
 - [Exkt for Ktor Server][exkt_ktor_server]
+- [Koin extensions for Ktor Server][exkt_ktor_server_koin]
 - [PostgreSQL Java Driver support for Ktor Server][exkt_ktor_server_postgres_support]
 - [Exkt for Ktorm][exkt_ktorm]
 - [Exkt for PostgreSQL Java Driver][exkt_postgres]
@@ -62,6 +63,7 @@ limitations under the License.
 [exkt_test]: https://github.com/d1snin/exkt/tree/main/exkt-test
 [exkt_konform]: https://github.com/d1snin/exkt/tree/main/exkt-konform
 [exkt_ktor_server]: https://github.com/d1snin/exkt/tree/main/exkt-ktor-server
+[exkt_ktor_server_koin]: https://github.com/d1snin/exkt/tree/main/exkt-ktor-server-koin
 [exkt_ktor_server_postgres_support]: https://github.com/d1snin/exkt/tree/main/exkt-ktor-server-postgres-support
 [exkt_ktorm]: https://github.com/d1snin/exkt/tree/main/exkt-ktorm
 [exkt_postgres]: https://github.com/d1snin/exkt/tree/main/exkt-postgres

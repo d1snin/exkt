@@ -44,6 +44,7 @@ include(
     "exkt-test",
     "exkt-konform",
     "exkt-ktor-server",
+    "exkt-ktor-server-koin",
     "exkt-ktor-server-postgres-support",
     "exkt-ktorm",
     "exkt-postgres"
