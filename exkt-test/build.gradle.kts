@@ -22,6 +22,11 @@ kotlin {
         }
     }
 
+    js {
+        browser()
+        nodejs()
+    }
+
     sourceSets {
         val jvmMain by getting {
             val coroutinesVersion: String by project
