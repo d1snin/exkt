@@ -18,7 +18,7 @@ package dev.d1s.exkt.ktor.server.koin.configuration.builtin
 
 import dev.d1s.exkt.ktor.server.koin.configuration.ApplicationConfigurer
 import io.ktor.server.application.*
-import io.ktor.server.config.*
+import io.ktor.server.config.ApplicationConfig
 import org.koin.core.module.Module
 import org.koin.ktor.plugin.Koin
 import org.koin.logger.slf4jLogger
