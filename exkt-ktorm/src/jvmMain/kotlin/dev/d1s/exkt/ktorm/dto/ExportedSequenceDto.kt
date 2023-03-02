@@ -30,6 +30,11 @@ import org.ktorm.entity.Entity
 public typealias ExportedSequenceWithOptionalDto<TEntity, TDto> = EntityWithOptionalDto<ExportedSequence<TEntity>, ExportedSequenceDto<TDto>>
 
 /**
+ * @see ExportedSequenceWithOptionalDto
+ */
+public typealias ResultingExportedSequenceWithOptionalDto<TEntity, TDto> = Result<ExportedSequenceWithOptionalDto<TEntity, TDto>>
+
+/**
  * A copy of [ExportedSequence] where elements are DTO.
  * You can utilize [convertExportedSequenceToDto] to convert [ExportedSequence] to [ExportedSequenceDto].
  *
