@@ -17,11 +17,24 @@
 package dev.d1s.exkt.ktor.server.koin.configuration
 
 import io.ktor.server.routing.*
+import org.koin.core.qualifier.Qualifier
 
 /**
  * Used to define routes. Automatically loaded by [ServerApplication].
  */
 public interface Route {
+
+    /**
+     * [Qualifier] for this Route.
+     *
+     * Example usage:
+     * ```kotlin
+     * // ...
+     * override val qualifier = named("yet-another-route")
+     * // ...
+     * ```
+     */
+    public val qualifier: Qualifier
 
     public fun Routing.apply()
 }

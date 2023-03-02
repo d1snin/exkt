@@ -33,7 +33,7 @@ public fun Module.configureRoutes(builder: Routes.() -> Unit) {
     val routes = Routes().apply(builder)
 
     routes.forEach { route ->
-        single {
+        single(qualifier = route.qualifier) {
             route
         }
     }
