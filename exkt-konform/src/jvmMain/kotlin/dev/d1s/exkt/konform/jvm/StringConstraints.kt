@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.d1s.exkt.konform
+package dev.d1s.exkt.konform.jvm
 
 import io.konform.validation.Constraint
 import io.konform.validation.ValidationBuilder
