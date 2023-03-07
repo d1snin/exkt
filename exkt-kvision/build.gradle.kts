@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */4
+ */
 
 kotlin {
     js {
@@ -25,7 +25,11 @@ kotlin {
             dependencies {
                 val kvisionVersion: String by project
 
+                val coroutinesVersion: String by project
+
                 api("io.kvision:kvision:$kvisionVersion")
+
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
             }
         }
     }

@@ -17,13 +17,22 @@
 package dev.d1s.exkt.kvision.component
 
 import io.kvision.panel.SimplePanel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+
+private val renderingScope by lazy {
+    CoroutineScope(Dispatchers.Main)
+}
 
 /**
  * Renders [component] on this [SimplePanel].
  */
 public fun SimplePanel.render(component: Component<*>) {
     with(component) {
-        render()
+        renderingScope.launch {
+            render()
+        }
     }
 }
 
@@ -31,9 +40,7 @@ public fun SimplePanel.render(component: Component<*>) {
  * Applies [config] to [component] and renders it on this [SimplePanel].
  */
 public fun <TConfig : Any> SimplePanel.render(component: Component<TConfig>, config: TConfig.() -> Unit) {
-    with(component) {
-        apply(config)
+    component.apply(config)
 
-        render()
-    }
+    render(component)
 }

@@ -29,7 +29,7 @@ import io.kvision.panel.SimplePanel
  * ```kotlin
  * object MessageComponent : Component<MessageComponent.MyComponentConfig>(::MyComponentConfig) {
  *
- *     override fun SimplePanel.render() {
+ *     override suspend fun SimplePanel.render() {
  *         h1(config.message)
  *     }
  *
@@ -41,7 +41,7 @@ import io.kvision.panel.SimplePanel
  *
  * object RootComponent : Component.Root() {
  *
- *     override fun SimplePanel.render() {
+ *     override suspend fun SimplePanel.render() {
  *         render(MessageComponent) {
  *             message = "Bye, World!"
  *         }
@@ -79,7 +79,7 @@ public abstract class Component<TConfig : Any>(private val configCreator: (() ->
     /**
      * Renders this component on [SimplePanel].
      */
-    public abstract fun SimplePanel.render()
+    public abstract suspend fun SimplePanel.render()
 
     /**
      * Applies [TConfig] configuration for this component.
