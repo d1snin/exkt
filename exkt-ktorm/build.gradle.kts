@@ -14,6 +14,10 @@
  * limitations under the License.
  */
 
+plugins {
+    kotlin("plugin.serialization")
+}
+
 kotlin {
     jvm {
         compilations.all {
@@ -26,9 +30,13 @@ kotlin {
             dependencies {
                 val ktormVersion: String by project
 
+                val serializationVersion: String by project
+
                 api("org.ktorm:ktorm-core:$ktormVersion")
 
                 api(project(":exkt-dto"))
+
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
             }
         }
 

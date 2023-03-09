@@ -20,6 +20,7 @@ import dev.d1s.exkt.dto.DtoConverter
 import dev.d1s.exkt.dto.EntityWithOptionalDto
 import dev.d1s.exkt.dto.convertToDtoList
 import dev.d1s.exkt.ktorm.ExportedSequence
+import kotlinx.serialization.Serializable
 import org.ktorm.entity.Entity
 
 /**
@@ -41,6 +42,7 @@ public typealias ResultingExportedSequenceWithOptionalDto<TEntity, TDto> = Resul
  * @see ExportedSequenceWithOptionalDto
  * @see convertExportedSequenceToDto
  */
+@Serializable
 public data class ExportedSequenceDto<TDto : Any>(
     val limit: Int,
     val offset: Int,
