@@ -35,7 +35,7 @@ public fun <E : UuidIdentifiedAndModificationTimestampAware<E>, T : UuidIdentifi
         it.createdAt
     }
 
-public fun <E : UuidIdentifiedAndModificationTimestampAware<E>, T : UuidIdentifiedAndModificationTimestampAwareEntities<E>> EntitySequence<E, T>.uuidIdentifiedSortedByCreatedAtDescending(): EntitySequence<E, T> =
+public fun <E : UuidIdentifiedAndModificationTimestampAware<E>, T : UuidIdentifiedAndModificationTimestampAwareEntities<E>> EntitySequence<E, T>.uuidIdentifiedEntitiesSortedByCreatedAtDescending(): EntitySequence<E, T> =
     this.sortedByDescending {
         it.createdAt
     }
@@ -50,12 +50,12 @@ public fun <E : ModificationTimestampAware<E>, T : ModificationTimestampAwareEnt
         it.updatedAt
     }
 
-public fun <E : UuidIdentifiedAndModificationTimestampAware<E>, T : UuidIdentifiedAndModificationTimestampAwareEntities<E>> EntitySequence<E, T>.uuidIdentifiedSortedByUpdatedAt(): EntitySequence<E, T> =
+public fun <E : UuidIdentifiedAndModificationTimestampAware<E>, T : UuidIdentifiedAndModificationTimestampAwareEntities<E>> EntitySequence<E, T>.uuidIdentifiedEntitiesSortedByUpdatedAt(): EntitySequence<E, T> =
     this.sortedBy {
         it.updatedAt
     }
 
-public fun <E : UuidIdentifiedAndModificationTimestampAware<E>, T : UuidIdentifiedAndModificationTimestampAwareEntities<E>> EntitySequence<E, T>.uuidIdentifiedSortedByUpdatedAtDescending(): EntitySequence<E, T> =
+public fun <E : UuidIdentifiedAndModificationTimestampAware<E>, T : UuidIdentifiedAndModificationTimestampAwareEntities<E>> EntitySequence<E, T>.uuidIdentifiedEntitiesSortedByUpdatedAtDescending(): EntitySequence<E, T> =
     this.sortedByDescending {
         it.updatedAt
     }
