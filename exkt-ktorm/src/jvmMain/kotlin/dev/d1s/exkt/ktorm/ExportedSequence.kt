@@ -17,6 +17,7 @@
 package dev.d1s.exkt.ktorm
 
 import org.ktorm.entity.*
+import org.ktorm.expression.OrderByExpression
 import org.ktorm.schema.Table
 
 private const val DEFAULT_LIMIT: Int = 1000
@@ -48,10 +49,13 @@ public data class ExportedSequence<E : Entity<E>>(
  */
 public fun <E : Entity<E>, T : Table<E>> EntitySequence<E, T>.export(
     limit: Int = DEFAULT_LIMIT,
-    offset: Int = DEFAULT_OFFSET
+    offset: Int = DEFAULT_OFFSET,
+    sort: (T) -> OrderByExpression
 ): ExportedSequence<E> {
     val totalCount = count()
-    val elements = drop(offset).take(limit).toList()
+    val trimmedElements = drop(offset).take(limit)
+    val sortedElements = trimmedElements.sortedBy(sort)
+    val elements = sortedElements.toList()
 
     return ExportedSequence(limit, offset, totalCount, elements)
 }
