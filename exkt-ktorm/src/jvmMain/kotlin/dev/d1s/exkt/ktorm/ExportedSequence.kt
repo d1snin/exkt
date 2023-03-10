@@ -50,11 +50,13 @@ public data class ExportedSequence<E : Entity<E>>(
 public fun <E : Entity<E>, T : Table<E>> EntitySequence<E, T>.export(
     limit: Int = DEFAULT_LIMIT,
     offset: Int = DEFAULT_OFFSET,
-    sort: (T) -> OrderByExpression
+    sort: ((T) -> OrderByExpression)? = null
 ): ExportedSequence<E> {
     val totalCount = count()
     val trimmedElements = drop(offset).take(limit)
-    val sortedElements = trimmedElements.sortedBy(sort)
+    val sortedElements = sort?.let { selector ->
+        sortedBy(selector)
+    } ?: trimmedElements
     val elements = sortedElements.toList()
 
     return ExportedSequence(limit, offset, totalCount, elements)
