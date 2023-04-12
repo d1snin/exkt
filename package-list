@@ -1,16 +1,26 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 
+module:exkt-common
+dev.d1s.exkt.common
 module:exkt-dto
 dev.d1s.exkt.dto
 module:exkt-konform
 dev.d1s.exkt.konform
+dev.d1s.exkt.konform.jvm
 module:exkt-ktor-server
 dev.d1s.exkt.ktor.server
+module:exkt-ktor-server-koin
+dev.d1s.exkt.ktor.server.koin.configuration
+dev.d1s.exkt.ktor.server.koin.configuration.builtin
 module:exkt-ktor-server-postgres-support
 dev.d1s.exkt.ktor.server.postgres
 module:exkt-ktorm
 dev.d1s.exkt.ktorm
 dev.d1s.exkt.ktorm.dto
+module:exkt-kvision
+dev.d1s.exkt.kvision.component
 module:exkt-postgres
 dev.d1s.exkt.postgres
+module:exkt-test
+dev.d1s.exkt.test

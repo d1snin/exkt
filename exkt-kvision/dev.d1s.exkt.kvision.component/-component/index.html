@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Component</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>exkt</span>            </a>    </div>
+    <div>1.0.0
+    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector js-like" data-active="" data-filter=":exkt-kvision:dokkaHtmlPartial/jsMain">js</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="exkt-kvision::dev.d1s.exkt.kvision.component/Component///PointingToDeclaration//857458323">
+  <div class="breadcrumbs"><a href="../../index.html">exkt-kvision</a><span class="delimiter">/</span><a href="../index.html">dev.d1s.exkt.kvision.component</a><span class="delimiter">/</span><span class="current">Component</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Component</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="index.html">Component</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">TConfig</a><span class="token operator"> : </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">configCreator<span class="token operator">: </span><a href="../index.html#-1561932955%2FClasslikes%2F857458323">ConfigCreator</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">TConfig</a><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><p class="paragraph">This class defines a very simple UI component abstraction. Every <a href="index.html">Component</a> is supposed to be rendered inside other <a href="index.html">Components</a> forming a tree where the head is <a href="-root/index.html">Component.Root</a>.</p><p class="paragraph">Components are being rendered through <a href="../render.html">render</a> extension function.</p><p class="paragraph">Example usage:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">object MessageComponent : Component&lt;MessageComponent.MyComponentConfig&gt;(::MyComponentConfig) {<br><br>    override suspend fun SimplePanel.render() {<br>        h1(config.message)<br>    }<br><br>    class MyComponentConfig {<br><br>        var message: String = "Hello, World!"<br>    }<br>}<br><br>object RootComponent : Component.Root() {<br><br>    override suspend fun SimplePanel.render() {<br>        render(MessageComponent) {<br>            message = "Bye, World!"<br>        }<br>    }<br>}<br><br>class MyApplication : Application() {<br><br>    override fun start() {<br>        root("root") {<br>            render(RootComponent)<br>        }<br>    }<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":exkt-kvision:dokkaHtmlPartial/jsMain" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>TConfig</span></span></u></div></span></div><div><div class="title"><p class="paragraph">defines any configuration class to be used to configure this component. This must be <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a> if you don't introduce any configuration for this component. Also note that <a href="../../../exkt-kvision/dev.d1s.exkt.kvision.component/-component/config.html">config</a> property must be implemented with not-null value in case you want to make this component configurable.</p></div></div></div></div><div class="table-row" data-filterable-current=":exkt-kvision:dokkaHtmlPartial/jsMain" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>config</span><wbr><span><span>Creator</span></span></u></div></span></div><div><div class="title"><p class="paragraph">creator of the provided <a href="index.html">TConfig</a>.</p></div></div></div></div></div><h4 class="">See also</h4><div class="table"><div class="table-row" data-filterable-current=":exkt-kvision:dokkaHtmlPartial/jsMain" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="-root/index.html"><span>Component.</span><wbr><span>Root</span></a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":exkt-kvision:dokkaHtmlPartial/jsMain" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../render.html"><span><span>render</span></span></a></div></span></div><div></div></div></div></div><h4 class="">Inheritors</h4><div class="table"><div class="table-row" data-filterable-current=":exkt-kvision:dokkaHtmlPartial/jsMain" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="-root/index.html">Root</a></div></span></div><div></div></div></div></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,FUNCTION,PROPERTY">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="248578093%2FConstructors%2F857458323" anchor-label="Component" id="248578093%2FConstructors%2F857458323" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":exkt-kvision:dokkaHtmlPartial/jsMain" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-component.html"><span><span>Component</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="248578093%2FConstructors%2F857458323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">configCreator<span class="token operator">: </span><a href="../index.html#-1561932955%2FClasslikes%2F857458323">ConfigCreator</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">TConfig</a><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-951229056%2FClasslikes%2F857458323" anchor-label="Root" id="-951229056%2FClasslikes%2F857458323" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain"></a>
+          <div class="table-row" data-filterable-current=":exkt-kvision:dokkaHtmlPartial/jsMain" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-root/index.html"><span><span>Root</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-951229056%2FClasslikes%2F857458323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-root/index.html">Root</a> : <a href="index.html">Component</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Root component. Supposed to be rendered right in the <span data-unresolved-link="io.kvision.panel/Root///PointingToDeclaration/">Root</span> panel. Note that <a href="-root/index.html">Component.Root</a> can not be configured.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1722371927%2FFunctions%2F857458323" anchor-label="apply" id="-1722371927%2FFunctions%2F857458323" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain"></a>
+          <div class="table-row" data-filterable-current=":exkt-kvision:dokkaHtmlPartial/jsMain" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="apply.html"><span><span>apply</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1722371927%2FFunctions%2F857458323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="apply.html"><span class="token function">apply</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">block<span class="token operator">: </span><span class="token keyword"></span><a href="index.html">TConfig</a><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Applies <a href="index.html">TConfig</a> configuration for this component.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1659102364%2FFunctions%2F857458323" anchor-label="render" id="1659102364%2FFunctions%2F857458323" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":exkt-kvision:dokkaHtmlPartial/jsMain" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="render.html"><span><span>render</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1659102364%2FFunctions%2F857458323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><span data-unresolved-link="io.kvision.panel/SimplePanel///PointingToDeclaration/">SimplePanel</span><span class="token punctuation">.</span><a href="render.html"><span class="token function">render</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Renders this component on <span data-unresolved-link="io.kvision.panel/SimplePanel///PointingToDeclaration/">SimplePanel</span>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>Copyright (c) 2022-2023 Mikhail Titov</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
+
