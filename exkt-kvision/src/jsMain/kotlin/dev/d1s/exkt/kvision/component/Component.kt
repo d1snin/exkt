@@ -18,6 +18,8 @@ package dev.d1s.exkt.kvision.component
 
 import io.kvision.panel.SimplePanel
 
+public typealias ConfigCreator<TConfig> = () -> TConfig
+
 /**
  * This class defines a very simple UI component abstraction.
  * Every [Component] is supposed to be rendered inside other [Components][Component] forming a tree
@@ -67,13 +69,13 @@ import io.kvision.panel.SimplePanel
  * @see Component.Root
  * @see dev.d1s.exkt.kvision.component.render
  */
-public abstract class Component<TConfig : Any>(private val configCreator: (() -> TConfig)? = null) {
+public abstract class Component<TConfig : Any>(private val configCreator: ConfigCreator<TConfig>? = null) {
 
     @Suppress("MemberVisibilityCanBePrivate")
     protected val config: TConfig by lazy {
         val creator = configCreator ?: error("config is not available")
 
-        creator()
+        creator.invoke()
     }
 
     /**
