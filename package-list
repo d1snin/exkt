@@ -3,6 +3,7 @@ $dokka.linkExtension:html
 
 module:exkt-common
 dev.d1s.exkt.common
+dev.d1s.exkt.common.pagination
 module:exkt-dto
 dev.d1s.exkt.dto
 module:exkt-konform
