@@ -29,7 +29,7 @@ kotlin {
 
                 api("io.kvision:kvision:$kvisionVersion")
 
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
             }
         }
     }

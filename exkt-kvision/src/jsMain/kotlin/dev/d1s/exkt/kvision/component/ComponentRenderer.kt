@@ -19,6 +19,7 @@ package dev.d1s.exkt.kvision.component
 import io.kvision.panel.SimplePanel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 private val renderingScope by lazy {
@@ -28,13 +29,12 @@ private val renderingScope by lazy {
 /**
  * Renders [component] on this [SimplePanel].
  */
-public fun SimplePanel.render(component: Component<*>) {
+public fun SimplePanel.render(component: Component<*>): Job =
     with(component) {
         renderingScope.launch {
             render()
         }
     }
-}
 
 /**
  * Applies [config] to [component] and renders it on this [SimplePanel].
