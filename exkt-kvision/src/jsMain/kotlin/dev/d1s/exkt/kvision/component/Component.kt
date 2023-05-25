@@ -25,13 +25,13 @@ public typealias ConfigCreator<TConfig> = () -> TConfig
  * Every [Component] is supposed to be rendered inside other [Components][Component] forming a tree
  * where the head is [Component.Root].
  *
- * Components are being rendered through [render][dev.d1s.exkt.kvision.component.render] extension function.
+ * Components are being rendered through [render][dev.d1s.exkt.kvision.component.launch] extension function.
  *
  * Example usage:
  * ```kotlin
  * object MessageComponent : Component<MessageComponent.MyComponentConfig>(::MyComponentConfig) {
  *
- *     override suspend fun SimplePanel.render() {
+ *     override fun SimplePanel.render() {
  *         h1(config.message)
  *     }
  *
@@ -43,7 +43,7 @@ public typealias ConfigCreator<TConfig> = () -> TConfig
  *
  * object RootComponent : Component.Root() {
  *
- *     override suspend fun SimplePanel.render() {
+ *     override fun SimplePanel.render() {
  *         render(MessageComponent) {
  *             message = "Bye, World!"
  *         }
@@ -67,7 +67,7 @@ public typealias ConfigCreator<TConfig> = () -> TConfig
  * @param configCreator creator of the provided [TConfig].
  *
  * @see Component.Root
- * @see dev.d1s.exkt.kvision.component.render
+ * @see dev.d1s.exkt.kvision.component.launch
  */
 public abstract class Component<TConfig : Any>(private val configCreator: ConfigCreator<TConfig>? = null) {
 
@@ -81,7 +81,7 @@ public abstract class Component<TConfig : Any>(private val configCreator: Config
     /**
      * Renders this component on [SimplePanel].
      */
-    public abstract suspend fun SimplePanel.render()
+    public abstract fun SimplePanel.render()
 
     /**
      * Applies [TConfig] configuration for this component.

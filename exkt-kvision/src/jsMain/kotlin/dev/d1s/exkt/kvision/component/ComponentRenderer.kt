@@ -17,30 +17,45 @@
 package dev.d1s.exkt.kvision.component
 
 import io.kvision.panel.SimplePanel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
-private val renderingScope by lazy {
-    CoroutineScope(Dispatchers.Main)
+/**
+ * Synchronously renders [component] on this [SimplePanel].
+ */
+public fun SimplePanel.render(component: Component<*>) {
+    with(component) {
+        render()
+    }
 }
 
 /**
- * Renders [component] on this [SimplePanel].
- */
-public fun SimplePanel.render(component: Component<*>): Job =
-    with(component) {
-        renderingScope.launch {
-            render()
-        }
-    }
-
-/**
- * Applies [config] to [component] and renders it on this [SimplePanel].
+ * Applies [config] to [component] and synchronously renders it on this [SimplePanel].
  */
 public fun <TConfig : Any> SimplePanel.render(component: Component<TConfig>, config: TConfig.() -> Unit) {
     component.apply(config)
 
     render(component)
+}
+
+/**
+ * Launches [component]'s [render][Component.render] on this [SimplePanel].
+ */
+public suspend fun SimplePanel.launch(component: Component<*>): Job =
+    with(component) {
+        coroutineScope {
+            launch {
+                render()
+            }
+        }
+    }
+
+/**
+ * Applies [config] to [component] and launches [render][Component.render] on this [SimplePanel].
+ */
+public suspend fun <TConfig : Any> SimplePanel.launch(component: Component<TConfig>, config: TConfig.() -> Unit) {
+    component.apply(config)
+
+    launch(component)
 }
