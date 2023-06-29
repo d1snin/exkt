@@ -28,10 +28,6 @@ kotlin {
 
                 val koinVersion: String by project
 
-                val kmLogVersion: String by project
-
-                implementation("org.lighthousegames:logging:$kmLogVersion")
-
                 api("io.ktor:ktor-server:$ktorVersion")
                 api("io.ktor:ktor-server-host-common:$ktorVersion")
 

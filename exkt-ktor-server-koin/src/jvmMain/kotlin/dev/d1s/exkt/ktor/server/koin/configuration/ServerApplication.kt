@@ -25,7 +25,8 @@ import io.ktor.server.routing.*
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.module.Module
-import org.lighthousegames.logging.logging
+import kotlin.getValue
+import kotlin.with
 import org.koin.dsl.module as koinModule
 
 public typealias Configurers = List<Configurer<*>>
@@ -58,8 +59,6 @@ public abstract class ServerApplication : KoinComponent {
 
     private val routeInstaller by inject<RouteInstaller>()
 
-    private val logger = logging()
-
     public abstract fun launch()
 
     public fun createApplicationEngineEnvironment(
@@ -86,10 +85,6 @@ public abstract class ServerApplication : KoinComponent {
         koinModule: Module = koinModule {},
         config: ApplicationConfig = environment.config
     ) {
-        logger.i {
-            "Applying application configurations..."
-        }
-
         applicationConfigurers.withEach {
             configure(koinModule, config)
         }
@@ -101,10 +96,6 @@ public abstract class ServerApplication : KoinComponent {
         koinModule: Module,
         config: ApplicationConfig
     ) {
-        logger.d {
-            "Applying environment configurations..."
-        }
-
         environmentConfigurers.withEach {
             configure(koinModule, config)
         }

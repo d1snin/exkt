@@ -19,7 +19,6 @@ package dev.d1s.exkt.ktor.server.koin.configuration
 import dev.d1s.exkt.common.withEach
 import io.ktor.server.routing.*
 import org.koin.core.component.KoinComponent
-import org.lighthousegames.logging.logging
 
 internal interface RouteInstaller {
 
@@ -32,13 +31,7 @@ internal class DefaultRouteInstaller : RouteInstaller, KoinComponent {
         getKoin().getAll<Route>()
     }
 
-    private val logger = logging()
-
     override fun Routing.installRoutes() {
-        logger.d {
-            "Installing routes..."
-        }
-
         routes.withEach {
             apply()
         }

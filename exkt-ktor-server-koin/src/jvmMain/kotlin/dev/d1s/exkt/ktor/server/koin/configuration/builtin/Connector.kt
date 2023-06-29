@@ -21,17 +21,10 @@ import io.ktor.server.application.*
 import io.ktor.server.config.ApplicationConfig
 import io.ktor.server.engine.*
 import org.koin.core.module.Module
-import org.lighthousegames.logging.logging
 
 public object Connector : EnvironmentConfigurer {
 
-    private val logger = logging()
-
     public override fun ApplicationEngineEnvironmentBuilder.configure(module: Module, config: ApplicationConfig) {
-        logger.d {
-            "Configuring connector..."
-        }
-
         connector {
             port = config.port
         }
