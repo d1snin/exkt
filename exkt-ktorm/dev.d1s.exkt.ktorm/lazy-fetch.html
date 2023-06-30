@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-    <title>hasDuplicates</title>
+    <title>lazyFetch</title>
 <link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
     if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -38,7 +38,7 @@
     </div>
     <div class="pull-right d-flex">
         <div class="filter-section" id="filter-section">
-                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":exkt-common:dokkaHtmlPartial/commonMain">common</button>
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":exkt-ktorm:dokkaHtmlPartial/jvmMain">jvm</button>
         </div>
         <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
         <div id="searchBar"></div>
@@ -49,12 +49,12 @@
         <div id="sideMenu"></div>
     </div>
     <div id="main">
-<div class="main-content" data-page-type="member" id="content" pageids="exkt-common::dev.d1s.exkt.common//hasDuplicates/kotlin.collections.Iterable[*]#/PointingToDeclaration//1707299817">
-  <div class="breadcrumbs"><a href="../index.html">exkt-common</a><span class="delimiter">/</span><a href="index.html">dev.d1s.exkt.common</a><span class="delimiter">/</span><span class="current">hasDuplicates</span></div>
+<div class="main-content" data-page-type="member" id="content" pageids="exkt-ktorm::dev.d1s.exkt.ktorm//lazyFetch/org.ktorm.entity.Entity[*]#kotlin.String#kotlin.Function0[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration//1450952243">
+  <div class="breadcrumbs"><a href="../index.html">exkt-ktorm</a><span class="delimiter">/</span><a href="index.html">dev.d1s.exkt.ktorm</a><span class="delimiter">/</span><span class="current">lazyFetch</span></div>
   <div class="cover ">
-    <h1 class="cover"><span>has</span><wbr><span><span>Duplicates</span></span></h1>
+    <h1 class="cover"><span>lazy</span><wbr><span><span>Fetch</span></span></h1>
   </div>
-  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-common:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="has-duplicates.html"><span class="token function">hasDuplicates</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><p class="paragraph">Returns <code class="lang-kotlin">true</code> if this collection has duplicate objects. <code class="lang-kotlin">false</code> otherwise.</p><h4 class="">See also</h4><div class="table"><div class="table-row" data-filterable-current=":exkt-common:dokkaHtmlPartial/commonMain" data-filterable-set=":exkt-common:dokkaHtmlPartial/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="has-duplicates-of.html"><span>has</span><wbr><span>Duplicates</span><wbr><span><span>Of</span></span></a></div></span></div><div></div></div></div></div></div></div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-ktorm:dokkaHtmlPartial/jvmMain"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="lazy-fetch.html">T</a><span class="token operator">&gt; </span><span data-unresolved-link="org.ktorm.entity/Entity///PointingToDeclaration/">Entity</span><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="lazy-fetch.html"><span class="token function">lazyFetch</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">loader<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="lazy-fetch.html">T</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="lazy-fetch.html">T</a></div></div></div>
 </div>
       <div class="footer">
         <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>Copyright (c) 2022-2023 Mikhail Titov</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
