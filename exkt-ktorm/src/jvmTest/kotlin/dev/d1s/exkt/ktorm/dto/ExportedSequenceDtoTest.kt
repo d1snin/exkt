@@ -21,7 +21,7 @@ import dev.d1s.exkt.ktorm.ExportedSequence
 import dev.d1s.exkt.ktorm.util.*
 import io.mockk.coVerify
 import io.mockk.spyk
-import io.mockk.verify
+import kotlinx.coroutines.runBlocking
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
@@ -50,7 +50,9 @@ class ExportedSequenceDtoTest {
 
     @Test
     fun `must convert exported sequence to dto`() {
-        val actualExportedSequenceDto = testDtoConverter.convertExportedSequenceToDto(testExportedSequence)
+        val actualExportedSequenceDto = runBlocking {
+            testDtoConverter.convertExportedSequenceToDto(testExportedSequence)
+        }
 
         assertEquals(expectedExportedSequenceDto, actualExportedSequenceDto)
 
@@ -61,26 +63,30 @@ class ExportedSequenceDtoTest {
 
     @Test
     fun `must convert exported sequence to dto with matching predicate`() {
-        val actualExportedSequenceDto = testDtoConverter.convertExportedSequenceToDtoIf(testExportedSequence) {
-            true
+        val actualExportedSequenceDto = runBlocking {
+            testDtoConverter.convertExportedSequenceToDtoIf(testExportedSequence) {
+                true
+            }
         }
 
         assertEquals(expectedExportedSequenceDto, actualExportedSequenceDto)
 
-        verify {
+        coVerify {
             testDtoConverter.convertExportedSequenceToDto(testExportedSequence)
         }
     }
 
     @Test
     fun `must convert exported sequence to dto with mismatching predicate`() {
-        val actualExportedSequenceDto = testDtoConverter.convertExportedSequenceToDtoIf(testExportedSequence) {
-            false
+        val actualExportedSequenceDto = runBlocking {
+            testDtoConverter.convertExportedSequenceToDtoIf(testExportedSequence) {
+                false
+            }
         }
 
         assertNull(actualExportedSequenceDto)
 
-        verify(inverse = true) {
+        coVerify(inverse = true) {
             testDtoConverter.convertExportedSequenceToDto(testExportedSequence)
         }
     }

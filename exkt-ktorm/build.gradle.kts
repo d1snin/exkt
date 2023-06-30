@@ -44,8 +44,12 @@ kotlin {
             dependencies {
                 val mockkVersion: String by project
 
+                val coroutinesVersion: String by project
+
                 implementation(kotlin("test-junit"))
                 implementation("io.mockk:mockk:$mockkVersion")
+
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
             }
         }
     }
