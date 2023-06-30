@@ -19,8 +19,9 @@ package dev.d1s.exkt.dto
 import dev.d1s.exkt.dto.util.TestDtoConverter
 import dev.d1s.exkt.dto.util.testDto
 import dev.d1s.exkt.dto.util.testEntity
+import io.mockk.coVerify
 import io.mockk.spyk
-import io.mockk.verify
+import kotlinx.coroutines.runBlocking
 import kotlin.test.*
 
 class DtoConverterTest {
@@ -34,87 +35,104 @@ class DtoConverterTest {
     @Test
     fun `convertToDto must throw NotImplementedError`() {
         assertThrowsNotImplementedError {
-            emptyDtoConverter.convertToDto(Any())
+            runBlocking {
+                emptyDtoConverter.convertToDto(Any())
+            }
+
         }
     }
 
     @Test
     fun `convertToEntity must throw NotImplementedError`() {
         assertThrowsNotImplementedError {
-            emptyDtoConverter.convertToEntity(Any())
+            runBlocking {
+                emptyDtoConverter.convertToEntity(Any())
+            }
         }
     }
 
     @Test
     fun `must convert entity to dto with matching predicate`() {
-        val actualDto = testDtoConverter.convertToDtoIf(testEntity) {
-            true
+        val actualDto = runBlocking {
+            testDtoConverter.convertToDtoIf(testEntity) {
+                true
+            }
         }
 
         assertEquals(testDto, actualDto)
 
-        verify {
+        coVerify {
             testDtoConverter.convertToDto(testEntity)
         }
     }
 
     @Test
     fun `must return null dto with mismatching predicate`() {
-        val actualDto = testDtoConverter.convertToDtoIf(testEntity) {
-            false
+        val actualDto = runBlocking {
+            testDtoConverter.convertToDtoIf(testEntity) {
+                false
+            }
         }
 
         assertNull(actualDto)
 
-        verify(inverse = true) {
+        coVerify(inverse = true) {
             testDtoConverter.convertToDto(testEntity)
         }
     }
 
     @Test
     fun `must convert entities to dto list`() {
-        val actualDtoList = testDtoConverter.convertToDtoList(testEntities)
+        val actualDtoList = runBlocking {
+            testDtoConverter.convertToDtoList(testEntities)
+        }
 
         assertEquals(testDtoList, actualDtoList)
 
-        verify {
+        coVerify {
             testDtoConverter.convertToDto(testEntity)
         }
     }
 
     @Test
     fun `must convert entities to dto list with matching predicate`() {
-        val actualDtoList = testDtoConverter.convertToDtoListIf(testEntities) {
-            true
+        val actualDtoList = runBlocking {
+            testDtoConverter.convertToDtoListIf(testEntities) {
+                true
+            }
         }
 
         assertEquals(testDtoList, actualDtoList)
 
-        verify {
+        coVerify {
             testDtoConverter.convertToDtoList(testEntities)
         }
     }
 
     @Test
     fun `must return null dto list with mismatching predicate`() {
-        val actualDtoList = testDtoConverter.convertToDtoListIf(testEntities) {
-            false
+        val actualDtoList = runBlocking {
+            testDtoConverter.convertToDtoListIf(testEntities) {
+                false
+            }
         }
 
         assertNull(actualDtoList)
 
-        verify(inverse = true) {
+        coVerify(inverse = true) {
             testDtoConverter.convertToDtoList(testEntities)
         }
     }
 
     @Test
     fun `must convert dto list to entities`() {
-        val actualEntities = testDtoConverter.convertToEntities(testDtoList)
+        val actualEntities = runBlocking {
+            testDtoConverter.convertToEntities(testDtoList)
+        }
 
         assertEquals(testEntities, actualEntities)
 
-        verify {
+        coVerify {
             testDtoConverter.convertToEntity(testDto)
         }
     }

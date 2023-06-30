@@ -19,6 +19,7 @@ package dev.d1s.exkt.ktorm.dto
 import dev.d1s.exkt.dto.DtoConverter
 import dev.d1s.exkt.ktorm.ExportedSequence
 import dev.d1s.exkt.ktorm.util.*
+import io.mockk.coVerify
 import io.mockk.spyk
 import io.mockk.verify
 import kotlin.test.Test
@@ -53,7 +54,7 @@ class ExportedSequenceDtoTest {
 
         assertEquals(expectedExportedSequenceDto, actualExportedSequenceDto)
 
-        verify {
+        coVerify {
             testDtoConverter.convertToDto(testElement)
         }
     }
@@ -86,6 +87,6 @@ class ExportedSequenceDtoTest {
 
     inner class TestEntityDtoConverter : DtoConverter<TestEntity, Any> {
 
-        override fun convertToDto(entity: TestEntity): Any = testDto
+        override suspend fun convertToDto(entity: TestEntity): Any = testDto
     }
 }

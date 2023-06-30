@@ -23,7 +23,7 @@ val testDto = Any()
 
 class TestDtoConverter : DtoConverter<Any, Any> {
 
-    override fun convertToDto(entity: Any): Any = testDto
+    override suspend fun convertToDto(entity: Any): Any = testDto
 
-    override fun convertToEntity(dto: Any): Any = testEntity
+    override suspend fun convertToEntity(dto: Any): Any = testEntity
 }
