@@ -37,7 +37,7 @@ public interface DtoConverter<TEntity : Any, TDto : Any> {
      * @see convertToDtoList
      * @see convertToDtoListIf
      */
-    public fun convertToDto(entity: TEntity): TDto {
+    public suspend fun convertToDto(entity: TEntity): TDto {
         throw NotImplementedError()
     }
 
@@ -46,7 +46,7 @@ public interface DtoConverter<TEntity : Any, TDto : Any> {
      *
      * @see convertToEntities
      */
-    public fun convertToEntity(dto: TDto): TEntity {
+    public suspend fun convertToEntity(dto: TDto): TEntity {
         throw NotImplementedError()
     }
 }
@@ -54,7 +54,7 @@ public interface DtoConverter<TEntity : Any, TDto : Any> {
 /**
  * Converts given [entity] to [DTO][TDto] if the given [predicate] matches. Returns `null` otherwise.
  */
-public fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.convertToDtoIf(
+public suspend fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.convertToDtoIf(
     entity: TEntity,
     predicate: () -> Boolean
 ): TDto? =
@@ -67,7 +67,7 @@ public fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.convertToDtoI
 /**
  * Converts given [entities] to [DTO list][List].
  */
-public fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.convertToDtoList(entities: List<TEntity>): List<TDto> =
+public suspend fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.convertToDtoList(entities: List<TEntity>): List<TDto> =
     entities.map {
         convertToDto(it)
     }
@@ -75,7 +75,7 @@ public fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.convertToDtoL
 /**
  * Converts given [entities] to [DTO list][List] if the given [predicate] matches. Returns `null` otherwise.
  */
-public fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.convertToDtoListIf(
+public suspend fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.convertToDtoListIf(
     entities: List<TEntity>,
     predicate: () -> Boolean
 ): List<TDto>? =
@@ -88,7 +88,7 @@ public fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.convertToDtoL
 /**
  * Converts given [DTO list][dtoList] to [entities][List].
  */
-public fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.convertToEntities(dtoList: List<TDto>): List<TEntity> =
+public suspend fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.convertToEntities(dtoList: List<TDto>): List<TEntity> =
     dtoList.map {
         convertToEntity(it)
     }
