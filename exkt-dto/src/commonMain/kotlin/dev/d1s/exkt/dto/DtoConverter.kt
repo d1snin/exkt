@@ -31,20 +31,6 @@ package dev.d1s.exkt.dto
 public interface DtoConverter<TEntity : Any, TDto : Any> {
 
     /**
-     * Indicates whether this instance requires [prepareConversionToDto] to be called before [convertToDto].
-     *
-     * @see prepareConversionToDto
-     */
-    public val requiresPreparationForDtoConversion: Boolean
-
-    /**
-     * Indicates whether this instance requires [prepareConversionToEntity] to be called before [convertToEntity].
-     *
-     * @see prepareConversionToEntity
-     */
-    public val requiresPreparationForEntityConversion: Boolean
-
-    /**
      * Converts given [entity] to [DTO][TDto].
      *
      * @see prepareAndConvertToDto
@@ -68,8 +54,6 @@ public interface DtoConverter<TEntity : Any, TDto : Any> {
 
     /**
      * Prepares this instance to convert given [entity] to [DTO][TDto].
-     *
-     * @see requiresPreparationForDtoConversion
      */
     public suspend fun prepareConversionToDto(entity: TEntity) {
         throw NotImplementedError()
@@ -77,8 +61,6 @@ public interface DtoConverter<TEntity : Any, TDto : Any> {
 
     /**
      * Prepares this instance to convert given [DTO][dto] to [entity][TEntity].
-     *
-     * @see requiresPreparationForEntityConversion
      */
     public suspend fun prepareConversionToEntity(dto: TDto) {
         throw NotImplementedError()
