@@ -33,7 +33,6 @@ public interface DtoConverter<TEntity : Any, TDto : Any> {
     /**
      * Converts given [entity] to [DTO][TDto].
      *
-     * @see prepareAndConvertToDto
      * @see convertToDtoIf
      * @see convertToDtoList
      * @see convertToDtoListIf
@@ -45,55 +44,11 @@ public interface DtoConverter<TEntity : Any, TDto : Any> {
     /**
      * Converts given [DTO][dto] to [entity][TEntity].
      *
-     * @see prepareAndConvertToEntity
      * @see convertToEntities
      */
     public fun convertToEntity(dto: TDto): TEntity {
         throw NotImplementedError()
     }
-
-    /**
-     * Prepares this instance to convert given [entity] to [DTO][TDto].
-     */
-    public suspend fun prepareConversionToDto(entity: TEntity) {
-        throw NotImplementedError()
-    }
-
-    /**
-     * Prepares this instance to convert given [DTO][dto] to [entity][TEntity].
-     */
-    public suspend fun prepareConversionToEntity(dto: TDto) {
-        throw NotImplementedError()
-    }
-}
-
-/**
- * Throws [IllegalStateException] indicating that this operation can only be called after preparation.
- */
-public fun errorNotPrepared(): Nothing = throw IllegalStateException("This operation requires preparation.")
-
-/**
- * Converts given [entity] to [DTO][TDto] after preparation.
- */
-public suspend fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.prepareAndConvertToDto(entity: TEntity): TDto {
-    try {
-        prepareConversionToDto(entity)
-    } catch (_: NotImplementedError) {
-    }
-
-    return convertToDto(entity)
-}
-
-/**
- * Converts given [DTO][dto] to [entity][TEntity] after preparation.
- */
-public suspend fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.prepareAndConvertToEntity(dto: TDto): TEntity {
-    try {
-        prepareConversionToEntity(dto)
-    } catch (_: NotImplementedError) {
-    }
-
-    return convertToEntity(dto)
 }
 
 /**
@@ -110,32 +65,11 @@ public fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.convertToDtoI
     }
 
 /**
- * Converts given [entity] to [DTO][TDto] after preparation if the given [predicate] matches. Returns `null` otherwise.
- */
-public suspend fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.prepareAndConvertToDtoIf(
-    entity: TEntity,
-    predicate: () -> Boolean
-): TDto? =
-    if (predicate()) {
-        prepareAndConvertToDto(entity)
-    } else {
-        null
-    }
-
-/**
  * Converts given [entities] to [DTO list][List].
  */
 public fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.convertToDtoList(entities: List<TEntity>): List<TDto> =
     entities.map {
         convertToDto(it)
-    }
-
-/**
- * Converts given [entities] to [DTO list][List]. Prepares before each conversion.
- */
-public suspend fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.prepareAndConvertToDtoList(entities: List<TEntity>): List<TDto> =
-    entities.map {
-        prepareAndConvertToDto(it)
     }
 
 /**
@@ -152,31 +86,9 @@ public fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.convertToDtoL
     }
 
 /**
- * Converts given [entities] to [DTO list][List] if the given [predicate] matches. Prepares before each conversion.
- * Returns `null` otherwise.
- */
-public suspend fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.prepareAndConvertToDtoListIf(
-    entities: List<TEntity>,
-    predicate: () -> Boolean
-): List<TDto>? =
-    if (predicate()) {
-        prepareAndConvertToDtoList(entities)
-    } else {
-        null
-    }
-
-/**
  * Converts given [DTO list][dtoList] to [entities][List].
  */
 public fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.convertToEntities(dtoList: List<TDto>): List<TEntity> =
     dtoList.map {
         convertToEntity(it)
-    }
-
-/**
- * Converts given [DTO list][dtoList] to [entities][List]. Prepares before each conversion.
- */
-public suspend fun <TEntity : Any, TDto : Any> DtoConverter<TEntity, TDto>.prepareAndConvertToEntities(dtoList: List<TDto>): List<TEntity> =
-    dtoList.map {
-        prepareAndConvertToEntity(it)
     }
