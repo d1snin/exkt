@@ -55,11 +55,11 @@ public data class ExportedSequenceDto<TDto : Any>(
  *
  * @see convertExportedSequenceToDtoIf
  */
-public fun <TEntity : Entity<TEntity>, TDto : Any> DtoConverter<TEntity, TDto>.convertExportedSequenceToDto(
+public suspend fun <TEntity : Entity<TEntity>, TDto : Any> DtoConverter<TEntity, TDto>.convertExportedSequenceToDto(
     exportedSequence: ExportedSequence<TEntity>
 ): ExportedSequenceDto<TDto> =
     with(exportedSequence) {
-        val dtoList = convertToDtoList(elements)
+        val dtoList =  convertToDtoList(elements)
 
         ExportedSequenceDto(limit, offset, totalCount, dtoList)
     }
@@ -67,7 +67,7 @@ public fun <TEntity : Entity<TEntity>, TDto : Any> DtoConverter<TEntity, TDto>.c
 /**
  * Converts given [exportedSequence] to [ExportedSequenceDto] if the given [predicate] matches. Returns `null` otherwise.
  */
-public fun <TEntity : Entity<TEntity>, TDto : Any> DtoConverter<TEntity, TDto>.convertExportedSequenceToDtoIf(
+public suspend fun <TEntity : Entity<TEntity>, TDto : Any> DtoConverter<TEntity, TDto>.convertExportedSequenceToDtoIf(
     exportedSequence: ExportedSequence<TEntity>,
     predicate: () -> Boolean
 ): ExportedSequenceDto<TDto>? =
