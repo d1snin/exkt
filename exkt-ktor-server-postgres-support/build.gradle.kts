@@ -24,10 +24,7 @@ kotlin {
     sourceSets {
         val jvmMain by getting {
             dependencies {
-                val ktorVersion: String by project
-
-                api("io.ktor:ktor-server:$ktorVersion")
-
+                api(project(":exkt-ktor-server"))
                 api(project(":exkt-postgres"))
             }
         }

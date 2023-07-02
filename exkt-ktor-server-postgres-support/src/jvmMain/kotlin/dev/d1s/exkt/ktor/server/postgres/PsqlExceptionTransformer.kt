@@ -16,14 +16,13 @@
 
 package dev.d1s.exkt.ktor.server.postgres
 
+import dev.d1s.exkt.ktor.server.statuspages.HttpStatusException
 import dev.d1s.exkt.postgres.handlePsqlUniqueViolation
-import io.ktor.server.plugins.*
+import io.ktor.http.*
 
-public inline fun <R> handlePsqlUniqueViolationOrThrowNotFoundException(message: String? = null, block: () -> R): R =
-    handlePsqlUniqueViolation(block).getOrElse {
-        // if message is not null - use it
-        // if message is null - use NotFoundException's default one
-        message?.let {
-            throw NotFoundException(it)
-        } ?: throw NotFoundException()
-    }
+public inline fun <R> handlePsqlUniqueViolationThrowingConflictStatusException(
+    message: String? = null,
+    block: () -> R
+): R = handlePsqlUniqueViolation(block).getOrElse { cause ->
+    throw HttpStatusException(HttpStatusCode.Conflict, message, cause)
+}

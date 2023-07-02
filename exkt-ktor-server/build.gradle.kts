@@ -1,5 +1,3 @@
-import java.util.regex.Pattern.compile
-
 /*
  * Copyright 2022-2023 Mikhail Titov
  *
