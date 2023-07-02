@@ -1,3 +1,5 @@
+import java.util.regex.Pattern.compile
+
 /*
  * Copyright 2022-2023 Mikhail Titov
  *
@@ -27,6 +29,7 @@ kotlin {
                 val ktorVersion: String by project
 
                 api("io.ktor:ktor-server:$ktorVersion")
+                compileOnly("io.ktor:ktor-server-status-pages:$ktorVersion")
             }
         }
 
