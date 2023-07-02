@@ -23,7 +23,7 @@ import io.ktor.server.response.*
 
 public typealias HttpStatusExceptionHandler = (ApplicationCall, HttpStatusException) -> Unit
 
-public class HttpStatusException(public val status: HttpStatusCode, message: String?, cause: Throwable?) :
+public open class HttpStatusException(public val status: HttpStatusCode, message: String?, cause: Throwable?) :
     RuntimeException(message, cause)
 
 public fun StatusPagesConfig.httpStatusException(handler: HttpStatusExceptionHandler? = null) {
