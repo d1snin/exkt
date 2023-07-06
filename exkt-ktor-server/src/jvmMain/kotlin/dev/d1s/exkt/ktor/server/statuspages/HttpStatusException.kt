@@ -21,7 +21,7 @@ import io.ktor.server.application.*
 import io.ktor.server.plugins.statuspages.*
 import io.ktor.server.response.*
 
-public typealias HttpStatusExceptionHandler = (ApplicationCall, HttpStatusException) -> Unit
+public typealias HttpStatusExceptionHandler = suspend (ApplicationCall, HttpStatusException) -> Unit
 
 public open class HttpStatusException(public val status: HttpStatusCode, message: String? = null, cause: Throwable? = null) :
     RuntimeException(message, cause)
