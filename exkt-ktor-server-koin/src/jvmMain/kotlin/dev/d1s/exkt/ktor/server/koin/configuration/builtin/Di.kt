@@ -19,6 +19,7 @@ package dev.d1s.exkt.ktor.server.koin.configuration.builtin
 import dev.d1s.exkt.ktor.server.koin.configuration.ApplicationConfigurer
 import io.ktor.server.application.*
 import io.ktor.server.config.ApplicationConfig
+import org.koin.core.context.GlobalContext
 import org.koin.core.module.Module
 import org.koin.ktor.plugin.Koin
 import org.koin.logger.slf4jLogger
@@ -26,9 +27,13 @@ import org.koin.logger.slf4jLogger
 public object Di : ApplicationConfigurer {
 
     public override fun Application.configure(module: Module, config: ApplicationConfig) {
-        install(Koin) {
-            slf4jLogger()
-            modules(module)
+        try {
+            GlobalContext.get()
+        } catch (_: IllegalStateException) {
+            install(Koin) {
+                slf4jLogger()
+                modules(module)
+            }
         }
     }
 }
