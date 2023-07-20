@@ -56,11 +56,11 @@ public abstract class ServerApplication : KoinComponent {
 
     public abstract val configurers: Configurers
 
-    protected val koinModule: Module by lazy {
+    public val koinModule: Module by lazy {
         koinModule { }
     }
 
-    protected val config: ApplicationConfig by lazy {
+    public val config: ApplicationConfig by lazy {
         makeHoconApplicationConfig()
     }
 
