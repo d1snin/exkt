@@ -54,6 +54,14 @@ public abstract class ServerApplication : KoinComponent {
 
     public abstract val configurers: Configurers
 
+    protected val koinModule: Module by lazy {
+        koinModule {  }
+    }
+
+    protected val config: ApplicationConfig by lazy {
+        makeHoconApplicationConfig()
+    }
+
     private val environmentConfigurers get() = configurers.filterIsInstance<EnvironmentConfigurer>()
     private val applicationConfigurers get() = configurers.filterIsInstance<ApplicationConfigurer>()
 
@@ -62,15 +70,15 @@ public abstract class ServerApplication : KoinComponent {
     public abstract fun launch()
 
     public fun createApplicationEngineEnvironment(
-        koinModule: Module = koinModule {},
-        config: ApplicationConfig = makeHoconApplicationConfig()
+        koinModule: Module = this.koinModule,
+        config: ApplicationConfig = this.config
     ): ApplicationEngineEnvironment = applicationEngineEnvironment {
         this.applyEnvironmentConfiguration(koinModule, config)
     }
 
     public fun ApplicationEngineEnvironmentBuilder.applyEnvironmentConfiguration(
-        koinModule: Module = koinModule {},
-        config: ApplicationConfig = makeHoconApplicationConfig()
+        koinModule: Module = this@ServerApplication.koinModule,
+        config: ApplicationConfig = this@ServerApplication.config
     ) {
         this.config = config
 
@@ -82,7 +90,7 @@ public abstract class ServerApplication : KoinComponent {
     }
 
     public fun Application.applyApplicationConfigurersAndRoutes(
-        koinModule: Module = koinModule {},
+        koinModule: Module = this@ServerApplication.koinModule,
         config: ApplicationConfig = environment.config
     ) {
         applicationConfigurers.withEach {
