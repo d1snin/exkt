@@ -11,6 +11,7 @@ dev.d1s.exkt.konform
 dev.d1s.exkt.konform.jvm
 module:exkt-ktor-server
 dev.d1s.exkt.ktor.server
+dev.d1s.exkt.ktor.server.statuspages
 module:exkt-ktor-server-koin
 dev.d1s.exkt.ktor.server.koin.configuration
 dev.d1s.exkt.ktor.server.koin.configuration.builtin
