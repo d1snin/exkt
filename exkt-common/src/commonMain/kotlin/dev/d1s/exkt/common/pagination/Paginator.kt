@@ -29,6 +29,8 @@ public interface Paginator {
     public val limit: Int
 
     public val offset: Int
+
+    public val limitAndOffset: LimitAndOffset
 }
 
 public fun Paginator(pageLimit: Int, currentPage: Int): Paginator =
@@ -41,6 +43,10 @@ internal class DefaultPaginator(
 
     override val limit: Int
         get() = pageLimit * currentPage
+
     override val offset: Int
         get() = (pageLimit * currentPage) - pageLimit
+
+    override val limitAndOffset: LimitAndOffset
+        get() = LimitAndOffset(limit, offset)
 }
