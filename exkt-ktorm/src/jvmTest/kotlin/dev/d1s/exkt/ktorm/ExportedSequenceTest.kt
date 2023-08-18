@@ -31,7 +31,7 @@ class ExportedSequenceTest {
 
     private val entitySequenceMock = mockk<EntitySequenceMock>()
 
-    private val elements = listOf(testEntity)
+    private val elements = mutableListOf(testEntity)
 
     @Test
     fun `must export entity sequence`() {
@@ -50,7 +50,7 @@ class ExportedSequenceTest {
                     count()
                     drop(MOCK_OFFSET)
                     take(MOCK_LIMIT)
-                    toList()
+                    toMutableList()
                 }
             }
         }
@@ -71,7 +71,7 @@ class ExportedSequenceTest {
             } returns entitySequenceMock
 
             every {
-                entitySequenceMock.toList()
+                entitySequenceMock.toMutableList()
             } returns elements
 
             block()
