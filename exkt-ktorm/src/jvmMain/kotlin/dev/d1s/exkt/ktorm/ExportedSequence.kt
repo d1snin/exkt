@@ -59,7 +59,7 @@ public fun <E : Entity<E>, T : Table<E>> EntitySequence<E, T>.export(
     } ?: trimmedElements
     val elements = sortedElements.toMutableList()
 
-    if (offset >= totalCount) {
+    if (limit == 0 || offset >= totalCount) {
         elements.clear()
     }
 
