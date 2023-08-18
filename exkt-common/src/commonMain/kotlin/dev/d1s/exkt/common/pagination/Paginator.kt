@@ -31,6 +31,8 @@ public interface Paginator {
     public val offset: Int
 
     public val limitAndOffset: LimitAndOffset
+
+    public fun isLast(totalElements: Int): Boolean
 }
 
 public fun Paginator(pageLimit: Int, currentPage: Int): Paginator =
@@ -49,4 +51,7 @@ internal class DefaultPaginator(
 
     override val limitAndOffset: LimitAndOffset
         get() = LimitAndOffset(limit, offset)
+
+    override fun isLast(totalElements: Int) =
+        totalElements in (offset + 1)..limit
 }
