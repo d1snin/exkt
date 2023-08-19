@@ -63,11 +63,11 @@ class ExportedSequenceTest {
             } returns MOCK_COUNT
 
             every {
-                entitySequenceMock.drop(MOCK_OFFSET)
+                entitySequenceMock.take(MOCK_LIMIT)
             } returns entitySequenceMock
 
             every {
-                entitySequenceMock.take(MOCK_LIMIT)
+                entitySequenceMock.drop(MOCK_OFFSET)
             } returns entitySequenceMock
 
             every {
