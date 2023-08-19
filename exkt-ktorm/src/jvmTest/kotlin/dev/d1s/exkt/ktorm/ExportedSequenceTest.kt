@@ -48,8 +48,8 @@ class ExportedSequenceTest {
             verifyOrder {
                 with(entitySequenceMock) {
                     count()
-                    drop(MOCK_OFFSET)
                     take(MOCK_LIMIT)
+                    drop(MOCK_OFFSET)
                     toMutableList()
                 }
             }
