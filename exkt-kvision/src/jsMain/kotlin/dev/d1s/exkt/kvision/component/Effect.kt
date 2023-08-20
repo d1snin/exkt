@@ -16,6 +16,9 @@
 
 package dev.d1s.exkt.kvision.component
 
+import io.kvision.state.ObservableState
+import io.kvision.state.ObservableValue
+
 /**
  * Effect of rendering a [Component].
  *
@@ -33,3 +36,17 @@ public interface Effect {
 }
 
 public data class SimpleEffect(override val success: Boolean) : Effect
+
+public typealias LazyEffectState = ObservableState<Boolean>
+public typealias MutableLazyEffectState = ObservableValue<Boolean>
+
+public class LazyEffect(public val state: LazyEffectState) : Effect {
+
+    override val success: Boolean
+        get() = state.getState()
+}
+
+public fun lazyEffect(): Pair<MutableLazyEffectState, LazyEffect> =
+    ObservableValue(true).let {
+        it to LazyEffect(it)
+    }
