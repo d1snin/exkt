@@ -22,21 +22,20 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
 /**
- * Synchronously renders [component] on this [SimplePanel].
+ * Synchronously renders [component] on this [SimplePanel] and returns [effect][Effect].
  */
-public fun SimplePanel.render(component: Component<*>) {
+public fun SimplePanel.render(component: Component<*>): Effect =
     with(component) {
         render()
     }
-}
 
 /**
- * Applies [config] to [component] and synchronously renders it on this [SimplePanel].
+ * Applies [config] to [component], synchronously renders it on this [SimplePanel] and returns [effect][Effect].
  */
-public fun <TConfig : Any> SimplePanel.render(component: Component<TConfig>, config: TConfig.() -> Unit) {
+public fun <TConfig : Any> SimplePanel.render(component: Component<TConfig>, config: TConfig.() -> Unit): Effect {
     component.apply(config)
 
-    render(component)
+    return render(component)
 }
 
 /**
