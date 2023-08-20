@@ -31,8 +31,9 @@ public typealias ConfigCreator<TConfig> = () -> TConfig
  * ```kotlin
  * object MessageComponent : Component<MessageComponent.MyComponentConfig>(::MyComponentConfig) {
  *
- *     override fun SimplePanel.render() {
+ *     override fun SimplePanel.render(): Effect {
  *         h1(config.message)
+ *         return Effect.Success
  *     }
  *
  *     class MyComponentConfig {
@@ -43,10 +44,12 @@ public typealias ConfigCreator<TConfig> = () -> TConfig
  *
  * object RootComponent : Component.Root() {
  *
- *     override fun SimplePanel.render() {
+ *     override fun SimplePanel.render(): Effect {
  *         render(MessageComponent) {
  *             message = "Bye, World!"
  *         }
+ *
+ *         return Effect.Success
  *     }
  * }
  *
@@ -79,9 +82,9 @@ public abstract class Component<TConfig : Any>(private val configCreator: Config
     }
 
     /**
-     * Renders this component on [SimplePanel].
+     * Renders this component on [SimplePanel] and returns an [effect][Effect] of rendering.
      */
-    public abstract fun SimplePanel.render()
+    public abstract fun SimplePanel.render(): Effect
 
     /**
      * Applies [TConfig] configuration for this component.
