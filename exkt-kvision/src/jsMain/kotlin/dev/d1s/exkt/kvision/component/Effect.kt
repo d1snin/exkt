@@ -34,7 +34,7 @@ public interface Effect {
         public val Failure: Effect = SimpleEffect(success = false)
 
         public fun lazy(): Pair<MutableLazyEffectState, LazyEffect> =
-            ObservableValue(true).let {
+            ObservableValue(false).let {
                 it to LazyEffect(it)
             }
     }
