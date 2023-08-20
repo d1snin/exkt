@@ -32,6 +32,11 @@ public interface Effect {
 
         public val Success: Effect = SimpleEffect(success = true)
         public val Failure: Effect = SimpleEffect(success = false)
+
+        public fun lazy(): Pair<MutableLazyEffectState, LazyEffect> =
+            ObservableValue(true).let {
+                it to LazyEffect(it)
+            }
     }
 }
 
@@ -45,8 +50,3 @@ public class LazyEffect(public val state: LazyEffectState) : Effect {
     override val success: Boolean
         get() = state.getState()
 }
-
-public fun lazyEffect(): Pair<MutableLazyEffectState, LazyEffect> =
-    ObservableValue(true).let {
-        it to LazyEffect(it)
-    }
