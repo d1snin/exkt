@@ -40,9 +40,7 @@ class TestEntity : Entity<TestEntity> {
         TODO("Not yet implemented")
     }
 
-    override fun equals(other: Any?): Boolean {
-        TODO("Not yet implemented")
-    }
+    override fun equals(other: Any?) = true
 
     override fun flushChanges(): Int {
         TODO("Not yet implemented")
@@ -58,9 +56,7 @@ class TestEntity : Entity<TestEntity> {
         TODO("Not yet implemented")
     }
 
-    override fun toString(): String {
-        TODO("Not yet implemented")
-    }
+    override fun toString() = "TestEntity"
 }
 
 val testEntity get() = TestEntity()

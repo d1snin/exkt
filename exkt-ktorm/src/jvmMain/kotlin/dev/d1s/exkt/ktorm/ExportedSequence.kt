@@ -58,11 +58,11 @@ public fun <E : Entity<E>, T : Table<E>> EntitySequence<E, T>.export(
         sortedBy(selector)
     } ?: this
 
-    val trimmedElements = sortedElements.take(limit).drop(offset)
+    val limitedElements = sortedElements.take(limit).toList().drop(offset)
 
-    val elements = trimmedElements.toMutableList()
+    val elements = limitedElements.toMutableList()
 
-    if (limit == 0 || offset >= totalCount) {
+    if (limit == 0) {
         elements.clear()
     }
 

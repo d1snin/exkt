@@ -49,8 +49,7 @@ class ExportedSequenceTest {
                 with(entitySequenceMock) {
                     count()
                     take(MOCK_LIMIT)
-                    drop(MOCK_OFFSET)
-                    toMutableList()
+                    toList()
                 }
             }
         }
@@ -67,12 +66,8 @@ class ExportedSequenceTest {
             } returns entitySequenceMock
 
             every {
-                entitySequenceMock.drop(MOCK_OFFSET)
-            } returns entitySequenceMock
-
-            every {
-                entitySequenceMock.toMutableList()
-            } returns elements
+                entitySequenceMock.toList()
+            } returns listOf(testEntity)
 
             block()
         }

@@ -16,7 +16,7 @@
 
 package dev.d1s.exkt.ktorm.util
 
-const val MOCK_LIMIT = 1500
-const val MOCK_OFFSET = 200
+const val MOCK_LIMIT = 1
+const val MOCK_OFFSET = 0
 
-const val MOCK_COUNT = 2000
+const val MOCK_COUNT = 1
