@@ -1,9 +1,11 @@
 <!doctype html>
-<html>
+<html class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>dev.d1s.exkt.kvision.component</title>
-<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
     if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
@@ -16,12 +18,13 @@
         }
     }
     </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
 <script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
 <link href="../../styles/style.css" rel="Stylesheet">
-<link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
 <link href="../../styles/main.css" rel="Stylesheet">
 <link href="../../styles/prism.css" rel="Stylesheet">
 <link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
 <script type="text/javascript" src="../../scripts/clipboard.js" async></script>
 <script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
 <script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
@@ -29,26 +32,32 @@
 <script type="text/javascript" src="../../scripts/prism.js" async></script>
 <script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
 <body>
-<div class="navigation-wrapper" id="navigation-wrapper">
-    <div id="leftToggler"><span class="icon-toggler"></span></div>
-    <div class="library-name">
-<a href="../../index.html">
-<span>exkt</span>            </a>    </div>
-    <div>1.4.0
-    </div>
-    <div class="pull-right d-flex">
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../index.html">
+                            exkt
+                    </a>            </div>
+            <div class="library-version">1.4.2
+            </div>
+        </div>
         <div class="filter-section" id="filter-section">
                 <button class="platform-tag platform-selector js-like" data-active="" data-filter=":exkt-kvision:dokkaHtmlPartial/jsMain">js</button>
         </div>
-        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
-        <div id="searchBar"></div>
     </div>
-</div>
-<div id="container">
-    <div id="leftColumn">
-        <div id="sideMenu"></div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
     </div>
-    <div id="main">
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
 <div class="main-content" data-page-type="package" id="content" pageids="exkt-kvision::dev.d1s.exkt.kvision.component////PointingToDeclaration//857458323">
   <div class="breadcrumbs"><a href="../index.html">exkt-kvision</a><span class="delimiter">/</span><span class="current">dev.d1s.exkt.kvision.component</span></div>
   <div class="cover ">
@@ -69,7 +78,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-component/index.html">Component</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-component/index.html">TConfig</a><span class="token operator"> : </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">configCreator<span class="token operator">: </span><a href="index.html#-1561932955%2FClasslikes%2F857458323">ConfigCreator</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-component/index.html">TConfig</a><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">This class defines a very simple UI component abstraction. Every <a href="-component/index.html">Component</a> is supposed to be rendered inside other <a href="-component/index.html">Components</a> forming a tree where the head is <a href="-component/-root/index.html">Component.Root</a>.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-component/index.html">Component</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-component/index.html">TConfig</a><span class="token operator"> : </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">configCreator<span class="token operator">: </span><a href="-config-creator/index.html">ConfigCreator</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-component/index.html">TConfig</a><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">This class defines a very simple UI component abstraction. Every <a href="-component/index.html">Component</a> is supposed to be rendered inside other <a href="-component/index.html">Components</a> forming a tree where the head is <a href="-component/-root/index.html">Component.Root</a>.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -78,13 +87,88 @@
           <div class="table-row" data-filterable-current=":exkt-kvision:dokkaHtmlPartial/jsMain" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="index.html#-1561932955%2FClasslikes%2F857458323"><span>Config</span><wbr><span><span>Creator</span></span></a></div>
+                  <div><a href="-config-creator/index.html"><span>Config</span><wbr><span><span>Creator</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1561932955%2FClasslikes%2F857458323"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="index.html#-1561932955%2FClasslikes%2F857458323">ConfigCreator</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html#-1561932955%2FClasslikes%2F857458323">TConfig</a><span class="token operator">&gt;</span><span class="token operator"> = </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="index.html#-1561932955%2FClasslikes%2F857458323">TConfig</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-config-creator/index.html">ConfigCreator</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-config-creator/index.html">TConfig</a><span class="token operator">&gt;</span><span class="token operator"> = </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="-config-creator/index.html">TConfig</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="442308354%2FClasslikes%2F857458323" anchor-label="Effect" id="442308354%2FClasslikes%2F857458323" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain"></a>
+          <div class="table-row" data-filterable-current=":exkt-kvision:dokkaHtmlPartial/jsMain" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-effect/index.html"><span><span>Effect</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="442308354%2FClasslikes%2F857458323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-effect/index.html">Effect</a></div><div class="brief "><p class="paragraph">Effect of rendering a <a href="-component/index.html">Component</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1104387054%2FClasslikes%2F857458323" anchor-label="LazyEffect" id="1104387054%2FClasslikes%2F857458323" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain"></a>
+          <div class="table-row" data-filterable-current=":exkt-kvision:dokkaHtmlPartial/jsMain" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-lazy-effect/index.html"><span>Lazy</span><wbr><span><span>Effect</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1104387054%2FClasslikes%2F857458323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-lazy-effect/index.html">LazyEffect</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>state<span class="token operator">: </span><a href="-lazy-effect-state/index.html">LazyEffectState</a></span></span><span class="token punctuation">)</span> : <a href="-effect/index.html">Effect</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1889240253%2FClasslikes%2F857458323" anchor-label="LazyEffectState" id="-1889240253%2FClasslikes%2F857458323" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain"></a>
+          <div class="table-row" data-filterable-current=":exkt-kvision:dokkaHtmlPartial/jsMain" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-lazy-effect-state/index.html"><span>Lazy</span><wbr><span>Effect</span><wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1889240253%2FClasslikes%2F857458323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-lazy-effect-state/index.html">LazyEffectState</a><span class="token operator"> = </span><span data-unresolved-link="io.kvision.state/ObservableState///PointingToDeclaration/">ObservableState</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1906625331%2FClasslikes%2F857458323" anchor-label="MutableLazyEffectState" id="-1906625331%2FClasslikes%2F857458323" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain"></a>
+          <div class="table-row" data-filterable-current=":exkt-kvision:dokkaHtmlPartial/jsMain" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mutable-lazy-effect-state/index.html"><span>Mutable</span><wbr><span>Lazy</span><wbr><span>Effect</span><wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1906625331%2FClasslikes%2F857458323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-mutable-lazy-effect-state/index.html">MutableLazyEffectState</a><span class="token operator"> = </span><span data-unresolved-link="io.kvision.state/ObservableValue///PointingToDeclaration/">ObservableValue</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="199601520%2FClasslikes%2F857458323" anchor-label="SimpleEffect" id="199601520%2FClasslikes%2F857458323" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain"></a>
+          <div class="table-row" data-filterable-current=":exkt-kvision:dokkaHtmlPartial/jsMain" data-filterable-set=":exkt-kvision:dokkaHtmlPartial/jsMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-simple-effect/index.html"><span>Simple</span><wbr><span><span>Effect</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="199601520%2FClasslikes%2F857458323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-simple-effect/index.html">SimpleEffect</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>success<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span> : <a href="-effect/index.html">Effect</a></div></div></div>
                 </div>
               </div>
             </div>
@@ -118,7 +202,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><span data-unresolved-link="io.kvision.panel/SimplePanel///PointingToDeclaration/">SimplePanel</span><span class="token punctuation">.</span><a href="render.html"><span class="token function">render</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">component<span class="token operator">: </span><a href="-component/index.html">Component</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Synchronously renders <a href="render.html">component</a> on this <span data-unresolved-link="io.kvision.panel/SimplePanel///PointingToDeclaration/">SimplePanel</span>.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="render.html">TConfig</a><span class="token operator"> : </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt; </span><span data-unresolved-link="io.kvision.panel/SimplePanel///PointingToDeclaration/">SimplePanel</span><span class="token punctuation">.</span><a href="render.html"><span class="token function">render</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">component<span class="token operator">: </span><a href="-component/index.html">Component</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="render.html">TConfig</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">config<span class="token operator">: </span><span class="token keyword"></span><a href="render.html">TConfig</a><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Applies <a href="render.html">config</a> to <a href="render.html">component</a> and synchronously renders it on this <span data-unresolved-link="io.kvision.panel/SimplePanel///PointingToDeclaration/">SimplePanel</span>.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exkt-kvision:dokkaHtmlPartial/jsMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><span data-unresolved-link="io.kvision.panel/SimplePanel///PointingToDeclaration/">SimplePanel</span><span class="token punctuation">.</span><a href="render.html"><span class="token function">render</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">component<span class="token operator">: </span><a href="-component/index.html">Component</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-effect/index.html">Effect</a></div><div class="brief "><p class="paragraph">Synchronously renders <a href="render.html">component</a> on this <span data-unresolved-link="io.kvision.panel/SimplePanel///PointingToDeclaration/">SimplePanel</span> and returns <a href="-effect/index.html">effect</a>.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="render.html">TConfig</a><span class="token operator"> : </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt; </span><span data-unresolved-link="io.kvision.panel/SimplePanel///PointingToDeclaration/">SimplePanel</span><span class="token punctuation">.</span><a href="render.html"><span class="token function">render</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">component<span class="token operator">: </span><a href="-component/index.html">Component</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="render.html">TConfig</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">config<span class="token operator">: </span><span class="token keyword"></span><a href="render.html">TConfig</a><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-effect/index.html">Effect</a></div><div class="brief "><p class="paragraph">Applies <a href="render.html">config</a> to <a href="render.html">component</a>, synchronously renders it on this <span data-unresolved-link="io.kvision.panel/SimplePanel///PointingToDeclaration/">SimplePanel</span> and returns <a href="-effect/index.html">effect</a>.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -131,8 +215,9 @@
       <div class="footer">
         <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>Copyright (c) 2022-2023 Mikhail Titov</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
       </div>
+            </div>
+        </div>
     </div>
-</div>
 </body>
 </html>
 
