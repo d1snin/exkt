@@ -51,7 +51,7 @@ public fun <E, T, S> EntitySequence<E, T>.export(
     limit: Int = DEFAULT_LIMIT,
     offset: Int = DEFAULT_OFFSET,
     sort: ((T) -> OrderByExpression)? = null,
-    clientSort: ((E) -> S?)? = null
+    clientTransform: (List<E>.() -> List<E>)? = null
 ): ExportedSequence<E> where E : Entity<E>, T : Table<E>, S : Comparable<S> {
     val totalCount = count()
 
@@ -59,9 +59,13 @@ public fun <E, T, S> EntitySequence<E, T>.export(
         sortedBy(selector)
     } ?: this
 
-    val limitedElements = clientSort?.let {
-        sortedElements.toList().sortedBy(clientSort).take(limit)
-    } ?: sortedElements.take(limit).toList()
+    var processedElements: List<E>? = null
+
+    clientTransform?.let { process ->
+        processedElements = sortedElements.toList().process()
+    }
+
+    val limitedElements = processedElements?.take(limit) ?: sortedElements.take(limit).toList()
 
     val elementsWithoutOffset = limitedElements.drop(offset)
 
