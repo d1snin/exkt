@@ -47,12 +47,12 @@ public data class ExportedSequence<E : Entity<E>>(
  *
  * @see ExportedSequence
  */
-public fun <E, T, S> EntitySequence<E, T>.export(
+public fun <E, T> EntitySequence<E, T>.export(
     limit: Int = DEFAULT_LIMIT,
     offset: Int = DEFAULT_OFFSET,
     sort: ((T) -> OrderByExpression)? = null,
     clientTransform: (List<E>.() -> List<E>)? = null
-): ExportedSequence<E> where E : Entity<E>, T : Table<E>, S : Comparable<S> {
+): ExportedSequence<E> where E : Entity<E>, T : Table<E> {
     val totalCount = count()
 
     val sortedElements = sort?.let { selector ->
