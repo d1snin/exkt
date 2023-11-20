@@ -47,20 +47,25 @@ public data class ExportedSequence<E : Entity<E>>(
  *
  * @see ExportedSequence
  */
-public fun <E : Entity<E>, T : Table<E>> EntitySequence<E, T>.export(
+public fun <E, T, S> EntitySequence<E, T>.export(
     limit: Int = DEFAULT_LIMIT,
     offset: Int = DEFAULT_OFFSET,
-    sort: ((T) -> OrderByExpression)? = null
-): ExportedSequence<E> {
+    sort: ((T) -> OrderByExpression)? = null,
+    clientSort: ((E) -> S?)? = null
+): ExportedSequence<E> where E : Entity<E>, T : Table<E>, S : Comparable<S> {
     val totalCount = count()
 
     val sortedElements = sort?.let { selector ->
         sortedBy(selector)
     } ?: this
 
-    val limitedElements = sortedElements.take(limit).toList().drop(offset)
+    val limitedElements = clientSort?.let {
+        sortedElements.toList().sortedBy(clientSort).take(limit)
+    } ?: sortedElements.take(limit).toList()
 
-    val elements = limitedElements.toMutableList()
+    val elementsWithoutOffset = limitedElements.drop(offset)
+
+    val elements = elementsWithoutOffset.toMutableList()
 
     if (limit == 0) {
         elements.clear()
