@@ -64,7 +64,7 @@ public fun Component.displayInlineFlex(print: Boolean = false, breakpoint: Break
 
 private fun Component.display(value: String, print: Boolean, breakpoint: Breakpoint?) {
     addCssClass(
-        ("display-" + if (print) "print-" else "")
+        ("d-" + if (print) "print-" else "")
             .appendBreakpointWithValue(breakpoint, value)
     )
 }
