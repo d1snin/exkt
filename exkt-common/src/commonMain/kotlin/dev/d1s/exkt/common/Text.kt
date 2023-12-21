@@ -146,3 +146,9 @@ public fun Iterable<String>.toSpaceDelimitedString(): String = this.joinToString
 public fun Iterable<String>.lengthiestString(): String? = this.maxByOrNull {
     it.length
 }
+
+/**
+ * Returns this string if the given [predicate] returns `true`. Empty string otherwise.
+ */
+public inline fun String.takeIfOrEmpty(predicate: (String) -> Boolean): String =
+    takeIf(predicate) ?: ""

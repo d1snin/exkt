@@ -14,25 +14,26 @@
  * limitations under the License.
  */
 
-kotlin {
-    js {
-        browser()
-        nodejs()
-    }
+package dev.d1s.exkt.kvision.bootstrap
 
-    sourceSets {
-        val jsMain by getting {
-            dependencies {
-                val kvisionVersion: String by project
+import io.kvision.core.Component
 
-                val coroutinesVersion: String by project
+public fun Component.opacity100() {
+    addCssClass("opacity-100")
+}
 
-                api("io.kvision:kvision:$kvisionVersion")
+public fun Component.opacity75() {
+    addCssClass("opacity-75")
+}
 
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+public fun Component.opacity50() {
+    addCssClass("opacity-50")
+}
 
-                implementation(project(":exkt-common"))
-            }
-        }
-    }
+public fun Component.opacity25() {
+    addCssClass("opacity-25")
+}
+
+public fun Component.opacity0() {
+    addCssClass("opacity-0")
 }

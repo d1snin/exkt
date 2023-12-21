@@ -14,25 +14,16 @@
  * limitations under the License.
  */
 
-kotlin {
-    js {
-        browser()
-        nodejs()
-    }
+package dev.d1s.exkt.kvision.bootstrap
 
-    sourceSets {
-        val jsMain by getting {
-            dependencies {
-                val kvisionVersion: String by project
+public enum class Breakpoint {
+    SM, MD, LG, XL, XXL;
 
-                val coroutinesVersion: String by project
-
-                api("io.kvision:kvision:$kvisionVersion")
-
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
-
-                implementation(project(":exkt-common"))
-            }
-        }
-    }
+    override fun toString(): String =
+        this.name.lowercase()
 }
+
+internal fun String.appendBreakpointWithValue(breakpoint: Breakpoint?, value: String) =
+    this + (breakpoint?.let {
+        "$it-$value"
+    } ?: value)

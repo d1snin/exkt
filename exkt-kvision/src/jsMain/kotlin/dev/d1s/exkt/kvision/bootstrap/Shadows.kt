@@ -14,25 +14,22 @@
  * limitations under the License.
  */
 
-kotlin {
-    js {
-        browser()
-        nodejs()
-    }
+package dev.d1s.exkt.kvision.bootstrap
 
-    sourceSets {
-        val jsMain by getting {
-            dependencies {
-                val kvisionVersion: String by project
+import io.kvision.core.Component
 
-                val coroutinesVersion: String by project
+public fun Component.shadowNone() {
+    addCssClass("shadow-none")
+}
 
-                api("io.kvision:kvision:$kvisionVersion")
+public fun Component.shadowSm() {
+    addCssClass("shadow-sm")
+}
 
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+public fun Component.shadow() {
+    addCssClass("shadow")
+}
 
-                implementation(project(":exkt-common"))
-            }
-        }
-    }
+public fun Component.shadowLg() {
+    addCssClass("shadow-lg")
 }
