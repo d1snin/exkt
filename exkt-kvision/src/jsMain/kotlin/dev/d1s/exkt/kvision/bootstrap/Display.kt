@@ -18,51 +18,51 @@ package dev.d1s.exkt.kvision.bootstrap
 
 import io.kvision.core.Component
 
-public fun Component.displayNone(print: Boolean = false, breakpoint: Breakpoint? = null) {
-    display("none", print, breakpoint)
+public fun Component.dNone(print: Boolean = false, breakpoint: Breakpoint? = null) {
+    d("none", print, breakpoint)
 }
 
-public fun Component.displayInline(print: Boolean = false, breakpoint: Breakpoint? = null) {
-    display("inline", print, breakpoint)
+public fun Component.dInline(print: Boolean = false, breakpoint: Breakpoint? = null) {
+    d("inline", print, breakpoint)
 }
 
-public fun Component.displayInlineBlock(print: Boolean = false, breakpoint: Breakpoint? = null) {
-    display("inline-block", print, breakpoint)
+public fun Component.dInlineBlock(print: Boolean = false, breakpoint: Breakpoint? = null) {
+    d("inline-block", print, breakpoint)
 }
 
-public fun Component.displayBlock(print: Boolean = false, breakpoint: Breakpoint? = null) {
-    display("block", print, breakpoint)
+public fun Component.dBlock(print: Boolean = false, breakpoint: Breakpoint? = null) {
+    d("block", print, breakpoint)
 }
 
-public fun Component.displayGrid(print: Boolean = false, breakpoint: Breakpoint? = null) {
-    display("grid", print, breakpoint)
+public fun Component.dGrid(print: Boolean = false, breakpoint: Breakpoint? = null) {
+    d("grid", print, breakpoint)
 }
 
-public fun Component.displayInlineGrid(print: Boolean = false, breakpoint: Breakpoint? = null) {
-    display("inline-grid", print, breakpoint)
+public fun Component.dInlineGrid(print: Boolean = false, breakpoint: Breakpoint? = null) {
+    d("inline-grid", print, breakpoint)
 }
 
-public fun Component.displayTable(print: Boolean = false, breakpoint: Breakpoint? = null) {
-    display("table", print, breakpoint)
+public fun Component.dTable(print: Boolean = false, breakpoint: Breakpoint? = null) {
+    d("table", print, breakpoint)
 }
 
-public fun Component.displayTableCell(print: Boolean = false, breakpoint: Breakpoint? = null) {
-    display("table-cell", print, breakpoint)
+public fun Component.dTableCell(print: Boolean = false, breakpoint: Breakpoint? = null) {
+    d("table-cell", print, breakpoint)
 }
 
-public fun Component.displayTableRow(print: Boolean = false, breakpoint: Breakpoint? = null) {
-    display("table-row", print, breakpoint)
+public fun Component.dTableRow(print: Boolean = false, breakpoint: Breakpoint? = null) {
+    d("table-row", print, breakpoint)
 }
 
-public fun Component.displayFlex(print: Boolean = false, breakpoint: Breakpoint? = null) {
-    display("flex", print, breakpoint)
+public fun Component.dFlex(print: Boolean = false, breakpoint: Breakpoint? = null) {
+    d("flex", print, breakpoint)
 }
 
-public fun Component.displayInlineFlex(print: Boolean = false, breakpoint: Breakpoint? = null) {
-    display("inline-flex", print, breakpoint)
+public fun Component.dInlineFlex(print: Boolean = false, breakpoint: Breakpoint? = null) {
+    d("inline-flex", print, breakpoint)
 }
 
-private fun Component.display(value: String, print: Boolean, breakpoint: Breakpoint?) {
+private fun Component.d(value: String, print: Boolean, breakpoint: Breakpoint?) {
     addCssClass(
         ("d-" + if (print) "print-" else "")
             .appendBreakpointWithValue(breakpoint, value)
