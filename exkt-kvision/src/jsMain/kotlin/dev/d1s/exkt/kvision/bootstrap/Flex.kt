@@ -104,6 +104,22 @@ private fun Component.flexDirection(value: String, breakpoint: Breakpoint?) {
     )
 }
 
+public fun Component.flexGrow0(breakpoint: Breakpoint? = null) {
+    flexGrow(0, breakpoint)
+}
+
+public fun Component.flexGrow1(breakpoint: Breakpoint? = null) {
+    flexGrow(1, breakpoint)
+}
+
+public fun Component.flexShrink0(breakpoint: Breakpoint? = null) {
+    flexShrink(0, breakpoint)
+}
+
+public fun Component.flexShrink1(breakpoint: Breakpoint? = null) {
+    flexShrink(1, breakpoint)
+}
+
 private fun Component.justifyContent(value: String, breakpoint: Breakpoint?) {
     addCssClass(
         "justify-content-".appendBreakpointWithValue(breakpoint, value)
@@ -119,5 +135,17 @@ private fun Component.alignItems(value: String, breakpoint: Breakpoint?) {
 private fun Component.alignSelf(value: String, breakpoint: Breakpoint?) {
     addCssClass(
         "align-self-".appendBreakpointWithValue(breakpoint, value)
+    )
+}
+
+private fun Component.flexGrow(value: Int, breakpoint: Breakpoint?) {
+    addCssClass(
+        "flex-".appendBreakpointWithValue(breakpoint, "grow") + "-$value"
+    )
+}
+
+private fun Component.flexShrink(value: Int, breakpoint: Breakpoint?) {
+    addCssClass(
+        "flex-".appendBreakpointWithValue(breakpoint, "shrink") + "-$value"
     )
 }
