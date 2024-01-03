@@ -30,10 +30,6 @@ private enum class Mode {
 
 private val client = HttpClient.newHttpClient()
 
-private val blackList = listOf(
-    "5"
-)
-
 private val path = Paths.get("out.kt")
 
 internal fun main(args: Array<String>) {
@@ -66,7 +62,7 @@ private fun fetchClasses(mode: Mode): List<String> {
         }
         .toSet()
         .filterNot {
-            it in blackList
+            it.first().isDigit()
         }
 }
 
