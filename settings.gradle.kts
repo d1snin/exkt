@@ -48,6 +48,7 @@ include(
     "exkt-ktor-server-koin",
     "exkt-ktor-server-postgres-support",
     "exkt-kvision",
+    "exkt-kweb",
     "exkt-ktorm",
     "exkt-postgres"
 )
