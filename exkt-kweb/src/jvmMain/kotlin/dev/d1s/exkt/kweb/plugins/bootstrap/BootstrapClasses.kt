@@ -2989,12 +2989,6 @@ public class BootstrapClasses : AttributeBuilder() {
             return this
         }
 
-    public val 708: BootstrapClasses
-        get() {
-            classes("708")
-            return this
-        }
-
     public val accordionButton: BootstrapClasses
         get() {
             classes("accordion-button")
@@ -3301,12 +3295,6 @@ public class BootstrapClasses : AttributeBuilder() {
             return this
         }
 
-    public val 293: BootstrapClasses
-        get() {
-            classes("293")
-            return this
-        }
-
     public val btnCloseWhite: BootstrapClasses
         get() {
             classes("btn-close-white")
@@ -3610,12 +3598,6 @@ public class BootstrapClasses : AttributeBuilder() {
     public val carouselControlNextIcon: BootstrapClasses
         get() {
             classes("carousel-control-next-icon")
-            return this
-        }
-
-    public val 708l6: BootstrapClasses
-        get() {
-            classes("708l-6")
             return this
         }
 
