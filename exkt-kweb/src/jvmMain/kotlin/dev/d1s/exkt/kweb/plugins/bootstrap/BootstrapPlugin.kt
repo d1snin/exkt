@@ -41,4 +41,4 @@ public class BootstrapPlugin : KwebPlugin() {
 
 public val bootstrapPlugin: BootstrapPlugin get() = BootstrapPlugin()
 
-public val bootstrap: BootstrapClasses = BootstrapClasses()
+public val bootstrap: BootstrapClasses get() = BootstrapClasses()
