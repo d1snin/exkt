@@ -36,5 +36,3 @@ public class BootstrapIconsPlugin : KwebPlugin() {
 }
 
 public val bootstrapIconsPlugin: BootstrapIconsPlugin get() = BootstrapIconsPlugin()
-
-public val bootstrapIcons: BootstrapIconsClasses get() = BootstrapIconsClasses()

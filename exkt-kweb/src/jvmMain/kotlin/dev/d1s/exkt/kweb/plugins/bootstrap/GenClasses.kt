@@ -24,6 +24,8 @@ import java.nio.file.Files
 import java.nio.file.Paths
 import java.nio.file.StandardOpenOption
 
+private const val BS_PREFIX = "bs"
+
 private enum class Mode {
     MAIN, ICONS
 }
@@ -72,54 +74,43 @@ private fun prepareOutput() {
 }
 
 private fun writeSourceFile(mode: Mode, classes: List<String>) {
-    val classDefinition = when (mode) {
-        Mode.MAIN -> "BootstrapClasses"
-        Mode.ICONS -> "BootstrapIconsClasses"
-    }
-
-    prepareSourceFile(classDefinition)
+    prepareSourceFile()
 
     classes.forEach {
-        writeProperty(it, classDefinition)
+        writeProperty(it, mode)
     }
-
-    finishSourceFile()
 }
 
-private fun prepareSourceFile(classDefinition: String) {
+private fun prepareSourceFile() {
     writeOutput(
         "// !!! THIS FILE WAS AUTOMATICALLY GENERATED VIA dev.d1s.exkt.kweb.plugins.bootstrap.GenClassesKt DO NOT MODIFY !!!\n\n"
     )
 
     writeOutput("package dev.d1s.exkt.kweb.plugins.bootstrap\n\n")
     writeOutput("import kweb.AttributeBuilder\nimport kweb.classes\n\n")
-    writeOutput("public class $classDefinition : AttributeBuilder() {\n\n")
 }
 
-private fun writeProperty(classname: String, classDefinition: String) {
-    val propertyName =
-        classname.split("-")
-            .mapIndexed { index, s ->
-                if (index != 0) {
-                    s.replaceFirstChar {
-                        it.uppercase()
-                    }
-                } else {
-                    s
+private fun writeProperty(classname: String, mode: Mode) {
+    val prefix = if (mode == Mode.MAIN) BS_PREFIX else ""
+
+    val propertyName = prefix + classname.split("-")
+        .mapIndexed { index, s ->
+            if (mode == Mode.MAIN || index != 0) {
+                s.replaceFirstChar {
+                    it.uppercase()
                 }
-            }.joinToString("")
+            } else {
+                s
+            }
+        }.joinToString("")
 
     writeOutput(
-        "    public val $propertyName: $classDefinition\n" +
-                "        get() {\n" +
-                "            classes(\"$classname\")\n" +
-                "            return this\n" +
-                "        }\n\n"
+        "public val AttributeBuilder.$propertyName: AttributeBuilder\n" +
+                "    get() {\n" +
+                "        classes(\"$classname\")\n" +
+                "        return this\n" +
+                "    }\n\n"
     )
-}
-
-private fun finishSourceFile() {
-    writeOutput("}")
 }
 
 private fun writeOutput(text: String) {
