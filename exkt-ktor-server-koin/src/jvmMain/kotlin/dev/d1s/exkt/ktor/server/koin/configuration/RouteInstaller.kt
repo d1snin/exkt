@@ -18,22 +18,13 @@ package dev.d1s.exkt.ktor.server.koin.configuration
 
 import dev.d1s.exkt.common.withEach
 import io.ktor.server.routing.*
-import org.koin.core.component.KoinComponent
+import org.koin.core.context.GlobalContext
 
-internal interface RouteInstaller {
+private val routes
+    get() = GlobalContext.get().getAll<Route>()
 
-    fun Routing.installRoutes()
-}
-
-internal class DefaultRouteInstaller : RouteInstaller, KoinComponent {
-
-    private val routes by lazy {
-        getKoin().getAll<Route>()
-    }
-
-    override fun Routing.installRoutes() {
-        routes.withEach {
-            apply()
-        }
+internal fun Routing.installRoutes() {
+    routes.withEach {
+        apply()
     }
 }

@@ -23,12 +23,10 @@ import io.ktor.server.config.*
 import io.ktor.server.engine.*
 import io.ktor.server.routing.*
 import org.koin.core.component.KoinComponent
-import org.koin.core.component.get
 import org.koin.core.error.NoBeanDefFoundException
 import org.koin.core.module.Module
 import kotlin.getValue
 import kotlin.lazy
-import kotlin.with
 import org.koin.dsl.module as koinModule
 
 public typealias Configurers = List<Configurer<*>>
@@ -111,12 +109,8 @@ public abstract class ServerApplication : KoinComponent {
 
     private fun Application.installRoutes() {
         try {
-            val routeInstaller = get<RouteInstaller>()
-
             routing {
-                with(routeInstaller) {
-                    installRoutes()
-                }
+                installRoutes()
             }
         } catch (_: NoBeanDefFoundException) {
         }

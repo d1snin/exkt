@@ -37,17 +37,5 @@ kotlin {
                 implementation(project(":exkt-common"))
             }
         }
-
-        val jvmTest by getting {
-            dependencies {
-                val mockkVersion: String by project
-
-                val koinVersion: String by project
-
-                implementation(kotlin("test-junit"))
-                implementation("io.mockk:mockk:$mockkVersion")
-                implementation("io.insert-koin:koin-test:$koinVersion")
-            }
-        }
     }
 }

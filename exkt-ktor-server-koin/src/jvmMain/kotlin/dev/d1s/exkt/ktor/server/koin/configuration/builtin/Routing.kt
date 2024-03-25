@@ -16,9 +16,7 @@
 
 package dev.d1s.exkt.ktor.server.koin.configuration.builtin
 
-import dev.d1s.exkt.ktor.server.koin.configuration.DefaultRouteInstaller
 import dev.d1s.exkt.ktor.server.koin.configuration.Route
-import dev.d1s.exkt.ktor.server.koin.configuration.RouteInstaller
 import org.koin.core.module.Module
 
 public class Routes internal constructor() : MutableList<Route> by mutableListOf() {
@@ -27,7 +25,7 @@ public class Routes internal constructor() : MutableList<Route> by mutableListOf
 }
 
 /**
- * Supposed to be used in [Configurers][dev.d1s.exkt.ktor.server.koin.configuration.Configurer] to configure routes.
+ * Supposed to be used in [Configturers][dev.d1s.exkt.ktor.server.koin.configuration.Configurer] to configure routes.
  */
 public fun Module.configureRoutes(builder: Routes.() -> Unit) {
     val routes = Routes().apply(builder)
@@ -36,9 +34,5 @@ public fun Module.configureRoutes(builder: Routes.() -> Unit) {
         single(qualifier = route.qualifier) {
             route
         }
-    }
-
-    single<RouteInstaller> {
-        DefaultRouteInstaller()
     }
 }
