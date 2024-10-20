@@ -30,6 +30,8 @@ val testModificationTimestampAwareEntity
             get() = TODO("Not yet implemented")
         override val properties: Map<String, Any?>
             get() = TODO("Not yet implemented")
+        override val changedProperties: Map<String, Any?>
+            get() = TODO("Not yet implemented")
 
         override fun copy(): TestEntity {
             TODO("Not yet implemented")

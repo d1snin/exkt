@@ -26,8 +26,9 @@ class TestUuidIdentifiedEntity : UuidIdentified<TestUuidIdentifiedEntity> {
 
     override val entityClass: KClass<TestUuidIdentifiedEntity>
         get() = TODO("Not yet implemented")
-
     override val properties: Map<String, Any?>
+        get() = TODO("Not yet implemented")
+    override val changedProperties: Map<String, Any?>
         get() = TODO("Not yet implemented")
 
     override fun copy(): TestUuidIdentifiedEntity {
