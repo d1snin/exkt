@@ -48,6 +48,7 @@ public abstract class ServerApplication : KoinComponent {
         makeHoconApplicationConfig()
     }
 
+    private val engineConfigurers get() = configurers.filterIsInstance<EngineConfigurer>()
     private val environmentConfigurers get() = configurers.filterIsInstance<EnvironmentConfigurer>()
     private val applicationConfigurers get() = configurers.filterIsInstance<ApplicationConfigurer>()
 
@@ -58,6 +59,15 @@ public abstract class ServerApplication : KoinComponent {
         config: ApplicationConfig = this.config,
     ): ApplicationEnvironment = applicationEnvironment {
         this.applyEnvironmentConfiguration(koinModule, config)
+    }
+
+    public fun BaseApplicationEngine.Configuration.applyEngineConfiguration(
+        koinModule: Module = this@ServerApplication.koinModule,
+        config: ApplicationConfig = this@ServerApplication.config,
+    ) {
+        engineConfigurers.withEach {
+            configure(koinModule, config)
+        }
     }
 
     public fun ApplicationEnvironmentBuilder.applyEnvironmentConfiguration(
