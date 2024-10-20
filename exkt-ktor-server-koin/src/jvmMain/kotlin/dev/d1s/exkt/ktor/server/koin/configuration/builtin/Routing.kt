@@ -25,7 +25,7 @@ public class Routes internal constructor() : MutableList<Route> by mutableListOf
 }
 
 /**
- * Supposed to be used in [Configturers][dev.d1s.exkt.ktor.server.koin.configuration.Configurer] to configure routes.
+ * Supposed to be used in [Configurers][dev.d1s.exkt.ktor.server.koin.configuration.Configurer] to configure routes.
  */
 public fun Module.configureRoutes(builder: Routes.() -> Unit) {
     val routes = Routes().apply(builder)

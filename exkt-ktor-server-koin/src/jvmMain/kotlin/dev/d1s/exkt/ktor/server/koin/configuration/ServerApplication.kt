@@ -23,7 +23,7 @@ import io.ktor.server.config.*
 import io.ktor.server.engine.*
 import io.ktor.server.routing.*
 import org.koin.core.component.KoinComponent
-import org.koin.core.error.NoBeanDefFoundException
+import org.koin.core.error.NoDefinitionFoundException
 import org.koin.core.module.Module
 import kotlin.getValue
 import kotlin.lazy
@@ -33,20 +33,6 @@ public typealias Configurers = List<Configurer<*>>
 
 /**
  * [ServerApplication] class provides quick extensions for configuring Ktor Server at startup.
- *
- * Example usage:
- * ```kotlin
- * class MyApplication : ServerApplication() {
- *
- *     override val configurers = listOf(Routing, Security)
- *
- *     override fun launch() {
- *         val environment = createApplicationEngineEnvironment()
- *
- *         embeddedServer(Netty, environment).start(wait = true)
- *     }
- * }
- * ```
  *
  * @see Configurer
  */
@@ -69,27 +55,23 @@ public abstract class ServerApplication : KoinComponent {
 
     public fun createApplicationEngineEnvironment(
         koinModule: Module = this.koinModule,
-        config: ApplicationConfig = this.config
-    ): ApplicationEngineEnvironment = applicationEngineEnvironment {
+        config: ApplicationConfig = this.config,
+    ): ApplicationEnvironment = applicationEnvironment {
         this.applyEnvironmentConfiguration(koinModule, config)
     }
 
-    public fun ApplicationEngineEnvironmentBuilder.applyEnvironmentConfiguration(
+    public fun ApplicationEnvironmentBuilder.applyEnvironmentConfiguration(
         koinModule: Module = this@ServerApplication.koinModule,
-        config: ApplicationConfig = this@ServerApplication.config
+        config: ApplicationConfig = this@ServerApplication.config,
     ) {
         this.config = config
 
         this.applyEnvironmentConfigurers(koinModule, config)
-
-        module {
-            applyApplicationConfigurersAndRoutes(koinModule, config)
-        }
     }
 
     public fun Application.applyApplicationConfigurersAndRoutes(
         koinModule: Module = this@ServerApplication.koinModule,
-        config: ApplicationConfig = environment.config
+        config: ApplicationConfig = environment.config,
     ) {
         applicationConfigurers.withEach {
             configure(koinModule, config)
@@ -98,9 +80,9 @@ public abstract class ServerApplication : KoinComponent {
         installRoutes()
     }
 
-    private fun ApplicationEngineEnvironmentBuilder.applyEnvironmentConfigurers(
+    private fun ApplicationEnvironmentBuilder.applyEnvironmentConfigurers(
         koinModule: Module,
-        config: ApplicationConfig
+        config: ApplicationConfig,
     ) {
         environmentConfigurers.withEach {
             configure(koinModule, config)
@@ -112,7 +94,7 @@ public abstract class ServerApplication : KoinComponent {
             routing {
                 installRoutes()
             }
-        } catch (_: NoBeanDefFoundException) {
+        } catch (_: NoDefinitionFoundException) {
         }
     }
 

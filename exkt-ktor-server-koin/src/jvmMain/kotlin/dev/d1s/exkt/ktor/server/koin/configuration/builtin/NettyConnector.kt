@@ -16,15 +16,16 @@
 
 package dev.d1s.exkt.ktor.server.koin.configuration.builtin
 
-import dev.d1s.exkt.ktor.server.koin.configuration.EnvironmentConfigurer
+import dev.d1s.exkt.ktor.server.koin.configuration.ApplicationEngineConfigurer
 import io.ktor.server.application.*
 import io.ktor.server.config.ApplicationConfig
 import io.ktor.server.engine.*
+import io.ktor.server.netty.*
 import org.koin.core.module.Module
 
-public object Connector : EnvironmentConfigurer {
+public object NettyConnector : ApplicationEngineConfigurer<NettyApplicationEngine.Configuration> {
 
-    public override fun ApplicationEngineEnvironmentBuilder.configure(module: Module, config: ApplicationConfig) {
+    public override fun NettyApplicationEngine.Configuration.configure(module: Module, config: ApplicationConfig) {
         connector {
             port = config.port
         }

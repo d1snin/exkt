@@ -29,7 +29,7 @@ kotlin {
                 val koinVersion: String by project
 
                 api("io.ktor:ktor-server:$ktorVersion")
-                api("io.ktor:ktor-server-host-common:$ktorVersion")
+                api("io.ktor:ktor-server-netty:$ktorVersion")
 
                 api("io.insert-koin:koin-ktor:$koinVersion")
                 implementation("io.insert-koin:koin-logger-slf4j:$koinVersion")

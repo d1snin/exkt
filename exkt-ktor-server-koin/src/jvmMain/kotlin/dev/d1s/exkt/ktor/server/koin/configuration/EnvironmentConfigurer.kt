@@ -16,10 +16,11 @@
 
 package dev.d1s.exkt.ktor.server.koin.configuration
 
+import io.ktor.server.application.*
 import io.ktor.server.engine.*
 
 /**
- * [Configurer] supposed to configure [ApplicationEngineEnvironment].
+ * [Configurer] supposed to configure [ApplicationEnvironment].
  * i. e. `connectors`, `rootPath`
  */
-public interface EnvironmentConfigurer : Configurer<ApplicationEngineEnvironmentBuilder>
+public interface EnvironmentConfigurer : Configurer<ApplicationEnvironmentBuilder>
