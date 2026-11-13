@@ -1,6 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 /*
  * Copyright 2022-2024 Mikhail Titov
  *
@@ -18,15 +15,10 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
  */
 
 kotlin {
-    jvm {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
-        }
-    }
+    jvm()
 
     sourceSets {
-        val jvmMain by getting {
+        jvmMain {
             dependencies {
                 api(project(":exkt-ktor-server"))
                 api(project(":exkt-postgres"))

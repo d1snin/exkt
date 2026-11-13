@@ -14,31 +14,28 @@
  * limitations under the License.
  */
 
+import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import org.gradle.api.tasks.testing.logging.TestLogEvent
-import org.jetbrains.dokka.base.DokkaBase
-import org.jetbrains.dokka.base.DokkaBaseConfiguration
-import org.jetbrains.dokka.gradle.AbstractDokkaTask
-import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
-import org.jetbrains.dokka.gradle.DokkaTaskPartial
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 plugins {
     kotlin("multiplatform")
-    id("java-library")
     id("maven-publish")
     id("org.jetbrains.dokka")
     id("org.jetbrains.kotlinx.kover")
-    id("com.github.ben-manes.versions")
+    id("io.github.ben-manes.versions")
 }
 
-buildscript {
-    dependencies {
-        val dokkaVersion: String by project
+/**
+ * JDK used to build the project (provisioned via the Foojay toolchain resolver).
+ */
+val buildJdkVersion = 25
 
-        classpath("org.jetbrains.dokka:dokka-base:$dokkaVersion")
-    }
-}
+/**
+ * JVM bytecode/API level of the published artifacts.
+ */
+val targetJvmVersion = 17
 
 allprojects {
     apply {
@@ -48,8 +45,8 @@ allprojects {
         plugin("org.jetbrains.kotlinx.kover")
     }
 
-    val projectGroup: String by project
-    val projectVersion: String by project
+    val projectGroup = providers.gradleProperty("projectGroup").get()
+    val projectVersion = providers.gradleProperty("projectVersion").get()
 
     group = projectGroup
     version = projectVersion
@@ -101,30 +98,40 @@ allprojects {
         }
     }
 
-    tasks.withType<DokkaTaskPartial> {
-        dokkaSourceSets {
-            configureEach {
-                val moduleDocsPath: String by project
+    tasks.withType<KotlinJvmCompile>().configureEach {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.fromTarget(targetJvmVersion.toString()))
+            freeCompilerArgs.add("-Xjdk-release=$targetJvmVersion")
+        }
+    }
 
-                includes.setFrom(moduleDocsPath)
+    tasks.withType<JavaCompile>().configureEach {
+        options.release.set(targetJvmVersion)
+    }
+
+    dokka {
+        dokkaSourceSets.configureEach {
+            val moduleDocsPath = providers.gradleProperty("moduleDocsPath").get()
+
+            if (project != rootProject) {
+                includes.from(moduleDocsPath)
             }
         }
 
-        pluginConfiguration()
+        pluginsConfiguration.html {
+            footerMessage.set("Copyright (c) 2022-2024 Mikhail Titov")
+        }
     }
 
     kotlin {
+        jvmToolchain(buildJdkVersion)
+
         explicitApi()
     }
 }
 
 kotlin {
-    jvm {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
-        }
-    }
+    jvm()
 
     js {
         browser()
@@ -132,16 +139,25 @@ kotlin {
     }
 }
 
-tasks.withType<DokkaMultiModuleTask> {
-    includes.setFrom("README.md")
+dependencies {
+    subprojects.forEach {
+        dokka(project(it.path))
+    }
+}
 
-    pluginConfiguration()
+dokka {
+    dokkaPublications.html {
+        includes.from("README.md")
+    }
+}
+
+tasks.withType<DependencyUpdatesTask> {
+    rejectVersionIf {
+        isNonStable(candidate.version)
+    }
 }
 
 val Project.isDevVersion get() = this.version.toString().endsWith("-dev")
 
-fun AbstractDokkaTask.pluginConfiguration() {
-    pluginConfiguration<DokkaBase, DokkaBaseConfiguration> {
-        footerMessage = "Copyright (c) 2022-2023 Mikhail Titov"
-    }
-}
+fun isNonStable(version: String): Boolean =
+    Regex("(?i).*[.-](alpha|beta|rc|cr|m|eap|dev|snapshot|preview)[.\\d-]*.*").matches(version)

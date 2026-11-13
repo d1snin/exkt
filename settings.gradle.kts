@@ -14,30 +14,33 @@
  * limitations under the License.
  */
 
-rootProject.name = "exkt"
-
 pluginManagement {
     plugins {
-        val kotlinVersion: String by settings
+        val kotlinVersion = providers.gradleProperty("kotlinVersion").get()
 
-        val dokkaVersion: String by settings
+        val dokkaVersion = providers.gradleProperty("dokkaVersion").get()
 
-        val koverVersion: String by settings
+        val koverVersion = providers.gradleProperty("koverVersion").get()
 
-        val versionsPluginVersion: String by settings
+        val versionsPluginVersion = providers.gradleProperty("versionsPluginVersion").get()
 
         kotlin("multiplatform") version kotlinVersion
         kotlin("jvm") version kotlinVersion
-        kotlin("js") version kotlinVersion
         kotlin("plugin.serialization") version kotlinVersion
 
         id("org.jetbrains.dokka") version dokkaVersion
 
         id("org.jetbrains.kotlinx.kover") version koverVersion
 
-        id("com.github.ben-manes.versions") version versionsPluginVersion
+        id("io.github.ben-manes.versions") version versionsPluginVersion
     }
 }
+
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+}
+
+rootProject.name = "exkt"
 
 include(
     "exkt-common",

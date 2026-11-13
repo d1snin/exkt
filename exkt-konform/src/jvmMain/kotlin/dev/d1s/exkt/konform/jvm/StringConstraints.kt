@@ -20,7 +20,7 @@ import io.konform.validation.Constraint
 import io.konform.validation.ValidationBuilder
 import java.util.*
 
-public fun ValidationBuilder<String>.isValidUuid(): Constraint<String> = addConstraint("must be valid UUID value") {
+public fun ValidationBuilder<String>.isValidUuid(): Constraint<String> = constrain("must be valid UUID value") {
     try {
         UUID.fromString(it)
         true

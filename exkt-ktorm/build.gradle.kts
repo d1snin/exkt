@@ -1,6 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 /*
  * Copyright 2022-2024 Mikhail Titov
  *
@@ -22,19 +19,14 @@ plugins {
 }
 
 kotlin {
-    jvm {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
-        }
-    }
+    jvm()
 
     sourceSets {
-        val jvmMain by getting {
+        jvmMain {
             dependencies {
-                val ktormVersion: String by project
+                val ktormVersion = providers.gradleProperty("ktormVersion").get()
 
-                val serializationVersion: String by project
+                val serializationVersion = providers.gradleProperty("serializationVersion").get()
 
                 api("org.ktorm:ktorm-core:$ktormVersion")
 
@@ -44,11 +36,11 @@ kotlin {
             }
         }
 
-        val jvmTest by getting {
+        jvmTest {
             dependencies {
-                val mockkVersion: String by project
+                val mockkVersion = providers.gradleProperty("mockkVersion").get()
 
-                val coroutinesVersion: String by project
+                val coroutinesVersion = providers.gradleProperty("coroutinesVersion").get()
 
                 implementation(kotlin("test-junit"))
                 implementation("io.mockk:mockk:$mockkVersion")

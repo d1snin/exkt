@@ -1,6 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 /*
  * Copyright 2022-2024 Mikhail Titov
  *
@@ -18,17 +15,12 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
  */
 
 kotlin {
-    jvm {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
-        }
-    }
+    jvm()
 
     sourceSets {
-        val jvmMain by getting {
+        jvmMain {
             dependencies {
-                val postgresVersion: String by project
+                val postgresVersion = providers.gradleProperty("postgresVersion").get()
 
                 api("org.postgresql:postgresql:$postgresVersion")
             }

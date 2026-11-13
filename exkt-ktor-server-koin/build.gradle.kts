@@ -1,6 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 /*
  * Copyright 2022-2024 Mikhail Titov
  *
@@ -18,19 +15,14 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
  */
 
 kotlin {
-    jvm {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
-        }
-    }
+    jvm()
 
     sourceSets {
-        val jvmMain by getting {
+        jvmMain {
             dependencies {
-                val ktorVersion: String by project
+                val ktorVersion = providers.gradleProperty("ktorVersion").get()
 
-                val koinVersion: String by project
+                val koinVersion = providers.gradleProperty("koinVersion").get()
 
                 api("io.ktor:ktor-server:$ktorVersion")
                 api("io.ktor:ktor-server-netty:$ktorVersion")

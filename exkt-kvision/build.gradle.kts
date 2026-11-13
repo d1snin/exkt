@@ -18,14 +18,21 @@ kotlin {
     js {
         browser()
         nodejs()
+
+        // KVision 9+ is distributed as ES modules targeting ES2015
+        useEsModules()
+
+        compilerOptions {
+            target.set("es2015")
+        }
     }
 
     sourceSets {
-        val jsMain by getting {
+        jsMain {
             dependencies {
-                val kvisionVersion: String by project
+                val kvisionVersion = providers.gradleProperty("kvisionVersion").get()
 
-                val coroutinesVersion: String by project
+                val coroutinesVersion = providers.gradleProperty("coroutinesVersion").get()
 
                 api("io.kvision:kvision:$kvisionVersion")
 

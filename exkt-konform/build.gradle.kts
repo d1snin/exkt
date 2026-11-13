@@ -1,6 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 /*
  * Copyright 2022-2024 Mikhail Titov
  *
@@ -18,12 +15,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
  */
 
 kotlin {
-    jvm {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
-        }
-    }
+    jvm()
 
     js {
         browser()
@@ -31,9 +23,9 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             dependencies {
-                val konformVersion: String by project
+                val konformVersion = providers.gradleProperty("konformVersion").get()
 
                 api("io.konform:konform:$konformVersion")
             }
